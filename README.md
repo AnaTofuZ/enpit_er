@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- タイトル
+未定
 
-Things you may want to cover:
+- エレベーターピッチ
 
-* Ruby version
+```
+[近くの人と飲み食いしたい]
+[一人暮らしの大学生向けの]
+[今あるものでコミュニティーを作るきっかけを実現する]
+[あまりティ]というアプリです。
+これは[レシートを取って今あるものを管理することが出来]
+既存の[レシート写真を使って今あるものを管理するアプリ]とは違って
+[周囲の人の情報を見ることで,周囲の人とコミュニティが形成出来る有意性]がある
+```
 
-* System dependencies
+```
+[飲み会は好きだが,周囲の環境が解らない,隣の部屋の人が可愛いが声をかけづらい]
+[一人暮らしの大学新入生]向けの
+[今冷蔵庫に残っているものでコミュニティーを作るきっかけを実現する]
+[あまりティ]というアプリです。
+これは[レシートを取って今あるものを管理することが出来]
+既存の[レシート写真を使って今あるものを管理するアプリ]とは違って
+[周囲の人の情報を取得するることで,周囲の人とコミュニティが形成出来る有意性]がある
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
