@@ -18,6 +18,11 @@ ActiveRecord::Schema.define(version: 20171019081915) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "uid"
+    t.string "provider"
+    t.string "nickname"
+    t.string "location"
+    t.string "image"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
