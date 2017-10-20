@@ -33,6 +33,7 @@ module LineNotifyHelper
           })
     res = http.request(req)
     result = JSON.parse(res)
+    session[:access_token]=result['access_token']
   end
   #トークン期限確認
   def line_notify_token_status?
@@ -45,8 +46,9 @@ module LineNotifyHelper
   #   http.use_ssl = true
   #   http.verify_mode = OpenSSL::SSL::VERIFY_NONE
   #   req = Net::HTTP::Post.new(@get_url.path)
-  #   req["Authorization"] = "Bearer " + ""
+  #   req["Authorization"] = "Bearer " + session[]
   #   メッセージ及び画像ごとに形式の変換（配列形式で送る場合の条件分岐を行えるようにする）
+  #   req.body = payload#別案（配列を入れる）
   #   req.set_form_data({
   #           "grant_type" => "authorization_code",
   #           "code" => code,
