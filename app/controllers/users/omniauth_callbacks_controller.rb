@@ -7,9 +7,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     authorization
   end
 
-#  def passthru
-#     super
-#   end
+  def passthru
+     super
+   end
 #
   private
   def authorization
