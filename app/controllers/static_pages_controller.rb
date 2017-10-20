@@ -7,5 +7,11 @@ class StaticPagesController < ApplicationController
 
   def list
   end
+
+  def friends
+  end
+
+  def recipe
+  end
 end
 
