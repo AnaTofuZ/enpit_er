@@ -7,6 +7,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+
+
+  def build_resource(hash=nil)
+    hash[:uid] = User.create_unique_string
+    super
+  end
+
   # POST /resource
   # def create
   #   super

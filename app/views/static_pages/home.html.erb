@@ -6,5 +6,6 @@
         <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a> sample application.
     </h2>
 
-    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Sign in with Twitter",  user_twitter_omniauth_authorize_path(:twitter),  :class => 'navbar-link' %>
+        <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
 </div>
