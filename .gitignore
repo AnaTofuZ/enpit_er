@@ -23,3 +23,6 @@
 .byebug_history
 /vendor/bundle
 
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
