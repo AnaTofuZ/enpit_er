@@ -11,30 +11,45 @@ class User < ApplicationRecord
   
   def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    unless user
+    return  user if user
       user = User.create(name:     auth.info.nickname,
                          provider: auth.provider,
                          uid:      auth.uid,
                          email:    User.create_unique_email,
                          password: Devise.friendly_token[0,20]
                         )
-    end
     user
   end
 
-  # 通常サインアップ時のuid用、Twitter OAuth認証時のemail用にuuidな文字列を生成
-  def self.create_unique_string
-    SecureRandom.uuid
+  def self.find_or_create_from_auth_hash(auth)
+    #OmniAuthで取得した各データを代入していく
+        provider  = auth[:provider]
+        uid       = auth[:uid]
+        name      = auth[:info][:nickname]
+        image     = auth[:info][:image]
+    
+        User.find_or_create_by(provider: provider, uid: uid) do |user|
+          user.name  = name
+          user.image = image
+        end
   end
 
-  # twitterではemailを取得できないので、適当に一意のemailを生成
-  def self.create_unique_email
-    User.create_unique_string + "@example.com"
+
+  def self.from_omniauth(auth)
+    find_or_create_by(provider: auth["provider"], uid: auth["uid"]) do |user|
+      user.provider = auth["provider"]
+      user.uid      = auth["uid"]
+      user.name     = auth["info"]["nickname"]
+    end
   end
 
-  class << self
-    def from_omniauth auth
-      User.where(provider: auth.provider, uid: auth.uid).first
+  def self.new_with_session(params, session)
+    if session["devise.user_attributes"]
+      new(session["devise.user_attributes"]) do |user|
+        user.attributes = params
+      end
+    else
+      super
     end
   end
 end
