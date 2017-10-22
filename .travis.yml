@@ -10,8 +10,7 @@ bundler_args: "--without development --deployment"
 cache: bundler
 
 before_script:
-  - bundle exec rails  db:create
-  - bundle exec rails  db:migrate
+    - bundle exec rails  db:migrate:reset
 
 script:
   - bundle exec rails test
