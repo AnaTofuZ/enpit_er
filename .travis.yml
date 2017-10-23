@@ -1,21 +1,15 @@
 language: ruby
 rvm:
 - 2.4.2
-
 services:
-  - postgresql
-
+- postgresql
 bundler_args: "--without development --deployment"
-
 cache: bundler
-
 before_script:
-  - bundle exec rails  db:create
-  - bundle exec rails  db:migrate
-
+- bundle exec rails  db:create
+- bundle exec rails  db:migrate
 script:
-  - bundle exec rails test
-
+- bundle exec rails test
 deploy:
   provider: heroku
   api_key:
@@ -23,3 +17,7 @@ deploy:
   app: ancient-forest-28943
   on:
     repo: AnaTofuZ/enpit_er
+env:
+  global:
+  - secure: XObA/9jKoC07sT9JFstvVheTCxYaWEgLXNRn+rp+tWAXUY+XsIBTF6Hww/yi1KKSCeCQm4Wmtd7xsFQqc0cjTYFh42V0Sz0FtPHLsQutb5STcDZglpGdZ1xJjAqJFzHJ1GQxbGveeptFtxdRXmai/DDARIeZ/Bf9am+6vzKm6RFFrYPAMrzAK1TkWxOitgBWUZGPuEwu6FfbwXtx9AqCpnD+Qc/kyLC+NIbKLZOtC1mb7D5r5K1DcnEah4ALzY/T5nDoLOLVVl9WwWi03WjWJe2GUdC/aGCiuDJ4AaVuQy9DYvd2daJ6IFmbWWL5c0+P1ZHvMKCMl5N33MYB7HWDSJfRt3e178qAyiP/tmt4j3ZyzDsokCG0rJUv0oyrcWRJlebrdNHcoeRWhNSCPAtRQ08hsD+dwWm68b8jkmRcUFLE1cYeQMBUq5+G6nfuavK7LaX1T38+W4YpE1RiiXhxix5fjr/136ZXLFjSQHIRO2vyehId7bnFgX1fwjhlpmwltRfuK+9Rtqyb2Wo6TfUdJlxYmQ8LflFmA2dlov4VGRoJBX97udFjaMoFqaqkmYlRcpe9nHRTBzb8p+0krFV2KK5IcOq96jEWFBtqOdBsU5YBGOzKHg5Klrd0s8DEYsglqZiiUa+LAIfbpwNnHDn7LM0uEo04OPwBtneXDNJPv/I=
+  - secure: uqHYrWYoxLJQAuc6W2PtDZ1QiaZA3Uwq4Z1nqW2yo2Zj0d1AgaIvNSF7HXS0ucYl8x6Fy7K+/fioZmkfEsZOcDyG4/7+0NFVUV7eLFR9JcmERJq5tm6F1P4a0OFmKkI0upu8MMiUwDv4jtDcF5OLdkqCBN6ZPyFTYk6xfvNa1ripLgJqrhSkyN0sSrYfuV5hZk6vyCn+uwwP57t8PcWgAc6HoYS+qpbNJ1HQsh6C4O3581xFrfClXK/qSxHWSwPi66Z2HXqKmrLVM8Pjz1PnUCnNBqkTTLYxZ+SLoZR3jCwV6mS/ohVddLZggMocyDIHDYdH/cxoQDjHvOFA5JkmNVi3I42KHdRDiy5jMkZMktRUl6ngPYpt5FNvK8qqAptP+Oi0PndmkYtfu5RYKJVsup86um3PyWR+G9XJbmfsAZF4bITKPLqJ1NImyituns/7tmM7RAhCi3Ed0z4SiE8uNuYYZataDR5+f/kG1NWPKTsJoZbM9ggVuOrU9HmPzTWMYhnPOPylBd5+Mvzzyjlz8wZQfdgdrGJJWSAgX2Vlex/9UlQuTnCUxuYqeMjOymC0Tzd9HVlXO3hz5Gmmd0aY7POzsU694m4UfhQX7Bmh5/+dYZcX+t3EYLnqS9sMBE0MW8xvARvxI+vN/XU/k7EATOF4i0n4mHTGpzcjvXKsyYY=
