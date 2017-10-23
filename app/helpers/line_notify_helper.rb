@@ -3,12 +3,14 @@ module LineNotifyHelper
   require 'uri'
   require 'json'
   
+  # TODO リダイレクト先の確認
   $redirect_uri='https://rails-tutorial2-doublequel.c9users.io/authorize'.freeze
-  $id = 'AE3ab3vVKQtglAtqfNOrqq'.freeze
-  $secret = 'Y82tINHu6dGdmejvZdtBfEkP2COzwbMSOI4BIHUCvaL'.freeze
+
+  $id = ENV["LINE_ID"].freeze
+  $secret = ENV["LINE_SECRET"].freeze
   #登録認証
   def line_notify_authorize()
-    @auth_url = "https://notify-bot.line.me/oauth/authorize?"
+    auth_url = "https://notify-bot.line.me/oauth/authorize?"
     sss = {  'response_type' => 'code',
 	            'client_id' => 'AE3ab3vVKQtglAtqfNOrqq',
 	            'redirect_uri'=> $redirect_uri,
@@ -17,16 +19,16 @@ module LineNotifyHelper
 	            'response_mode' => 'form_post'
       }
     #リダイレクト
-    redirect_to @auth_url + sss.map{|k,v| URI.encode(k.to_s) + "=" + URI.encode(v.to_s)}.join("&")
+    redirect_to auth_url + sss.map{|k,v| URI.encode(k.to_s) + "=" + URI.encode(v.to_s)}.join("&")
   end
   
   #トークン取得
   def line_notify_get_token(code)
-    @get_url = URI.parse('https://notify-bot.line.me/oauth/token')
-    http = Net::HTTP.new(@get_url.host, @get_url.port)
+    get_url = URI.parse('https://notify-bot.line.me/oauth/token')
+    http = Net::HTTP.new(get_url.host, get_url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    req = Net::HTTP::Post.new(@get_url.path)
+    req = Net::HTTP::Post.new(get_url.path)
     req.set_form_data({
             "grant_type" => "authorization_code",
             "code" => code,
@@ -41,15 +43,15 @@ module LineNotifyHelper
   end
   #トークン期限確認
   def line_notify_token_status?
-    @status_url = "https://notify-api.line.me/api/status"
+    status_url = "https://notify-api.line.me/api/status"
   end
   #通知
   def line_notify_send_message
-    @token_url = UIR.parse("https://notify-api.line.me/api/notify")
-    http = Net::HTTP.new(@get_url.host, @get_url.port)
+    token_url = UIR.parse("https://notify-api.line.me/api/notify")
+    http = Net::HTTP.new(get_url.host, get_url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    req = Net::HTTP::Post.new(@get_url.path)
+    req = Net::HTTP::Post.new(get_url.path)
     req["Authorization"] = "Bearer " + session[:access_token]
     #メッセージ及び画像ごとに形式の変換（配列形式で送る場合の条件分岐を行えるようにする）
     req.set_form_data({
