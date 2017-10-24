@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/AnaTofuZ/enpit_er.svg?branch=master)](https://travis-ci.org/AnaTofuZ/enpit_er)
 # README
 
 - タイトル
