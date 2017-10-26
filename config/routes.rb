@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'meeting_places/new'
+
   get 'receipt/input'
 
   root 'static_pages#home'
