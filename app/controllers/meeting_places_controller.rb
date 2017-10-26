@@ -1,6 +1,6 @@
 class MeetingPlacesController < ApplicationController
+
   def new
-    @meetingplace = MeetingPlaces.new
   end
 
   # TODO: 場所のDB設定と場所の一覧持ってくる(バリデート?)
@@ -19,7 +19,7 @@ class MeetingPlacesController < ApplicationController
 
  # user_idから出してくる
  def find_from_user
-    MeetingPlaces.find()
+    #MeetingPlaces.find()
  end
 
  # 変更用のメソッド
