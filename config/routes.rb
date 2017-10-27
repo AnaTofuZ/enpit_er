@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get 'profiles/new'
+  root 'static_pages#home'
 
   get 'receipt/input'
-
-  root 'static_pages#home'
   get  '/help',  to:'static_pages#help'
   get  '/list',  to:'static_pages#list'
   get  '/friends',  to:'static_pages#friends'
@@ -12,4 +10,5 @@ Rails.application.routes.draw do
   get '/authorize', to:'line_notify#authorize'
   post '/authorize', to:'line_notify#authorize'
   resources :users
+  resource :profile ,only: [:new,:edit,:show,:create,:update]
 end
