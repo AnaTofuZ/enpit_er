@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'static_pages/community'
+
+  get 'static_pages/map'
+
   get 'receipt/input'
 
   root 'static_pages#home'
