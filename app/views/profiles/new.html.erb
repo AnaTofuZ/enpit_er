@@ -1,12 +1,13 @@
-<h1>Profiles設定</h1>
-<p>あつまれる場所を設定してください</p>
+<% if logged_in? %>
+   <h1>Profiles設定</h1>
+   <p>あつまれる場所を設定してください</p>
 
-<%= form_tag :action => :create do%>
-   <%= select_tag(:place_id,options_for_select([['琉大工学部', 1], ['北口ローソン', 2],['キリ学',3]]) )%>
-<%= submit_tag "登録" %>
+   <%= form_for @profile, :url => {:controller => :profiles, :action => :create} do |f| %>
+      <%= f.submit "登録" %>
+   <% end %>
+
+   <% if @user %>
+        <%= @user.name %>,
+         <%= @user.email %>
+   <% end  %>
 <% end %>
-
-<% if @user %>
-     <%= @user.name %>,
-      <%= @user.email %>
-<% end  %>
