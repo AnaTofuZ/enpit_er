@@ -2,13 +2,16 @@ class ProfilesController < ApplicationController
   before_action :logged_in_user,except: [:create,:destroy]
   def new
     @user = user
-    user.build_profile
+   if @user.profile
+      redirect_to profile_url
+   else
+       user.build_profile
+    end
   end
 
 def create
    @user = user
-   @profile = user.build_profile(profile_param)
-   if @profile.save
+   if @profile = @user.create_profile(profile_param)
       flash[:success] = "プロフィールの登録が完了しました!"
       redirect_to root_url
    else
