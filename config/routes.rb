@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   get 'receipt/input'
+
   get  '/help',  to:'static_pages#help'
   get  '/list',  to:'static_pages#list'
   get  '/friends',  to:'static_pages#friends'
@@ -17,7 +18,8 @@ Rails.application.routes.draw do
   get 'static_pages/community'
   get 'static_pages/map'
   get 'receipt/input'
-
+  get 'receipt/confrimate'
+  
   resources :users
   resource :profile ,except: :destroy
 end
