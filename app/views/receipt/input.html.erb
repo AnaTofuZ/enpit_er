@@ -1,4 +1,15 @@
 <h1>レシートを登録するページ</h1>
-<input type="file">
+<% browser = Browser.new( request.env['HTTP_USER_AGENT'] ) %>
+<% if browser.device.mobile? %>
+<%=      render html: 'mobile' %>
+  <h2>これはモバイル画面です</h2>
+  <input type="file" accept="image/*">
+  <input type="button" onclick="location.href='/receipt/confrimate'"value="写真を撮る">
+<% else %>
+  <%#=  render html: 'PC' %>
+  <h2>これはPC画面です</h2>
+  <input type="file">
+  <input type="button" onclick="location.href='/receipt/confrimate'"value="確定">
+<% end %>
 <!-- urlは残り物リストに飛ばしてねー -->
 <input type="button" onclick="location.href='/list'"value="残り物リストに飛ぶよー">

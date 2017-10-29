@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get 'static_pages/community'
   get 'static_pages/map'
   get 'receipt/input'
+  get 'receipt/confrimate'
   resources :users
 end
