@@ -1,6 +1,6 @@
 <% if logged_in? %>
    <h1>Profiles設定</h1>
-   <p>あつまれる場所を設定してください</p>
+   <p>集合場所を設定してください</p>
 
    <%= form_for @user.profile, :url => {:controller => :profiles, :action => :create} do |f| %>
      <%= f.select(:place_id,options_for_select([['琉大工学部', 1], ['北口ローソン', 2],['キリ学',3]]) )%>
