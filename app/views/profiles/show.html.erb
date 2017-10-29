@@ -1,6 +1,6 @@
 <% if logged_in? %>
    <h1>Profiles確認</h1>
-      <% if profile_define(@user) %>
+      <% if profile_define %>
            <p> お名前 : <%= @user.name %>, </p>
            <p> 集合場所 : <%= show_place(@user.profile.place_id) %></p> <br />
       <% else %>

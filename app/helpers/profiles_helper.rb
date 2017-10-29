@@ -1,6 +1,6 @@
 module ProfilesHelper
-	def profile_define(user)
-		!user.profile.nil?
+	def profile_define
+		!current_user.profile.nil?
 	end
 
 	def show_place(place_id)
