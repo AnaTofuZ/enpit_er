@@ -14,17 +14,32 @@
     <script>
       var map;
       function initMap() {
+        // 琉大の座標
+        ryukyuUniv = {lat: 26.247582, lng: 127.765142}
         map = new google.maps.Map(document.getElementById('map'), {
           // 座標
-          center: {lat: 26.247582, lng: 127.765142},
+          center: ryukyuUniv,
           // 拡大率
           zoom: 18
         });
+
+        // マーカーを表示
+        var marker = new google.maps.Marker({
+        position: ryukyuUniv,
+        map: map,
+        title: 'なに見てんだよ'
+        });
+
+        // clickアクション, ページが遷移するよ
+        marker.addListener('click', function() {
+          location.href = "/friends";          
+        });
+
       }
     </script>
+
     <%# Google Maps JavaScript APIのAPIキーをいれる%>
-    <script src="https://maps.googleapis.com/maps/api/js?key=[APIkey]&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIUL_zjzg3O4H49Y-oBvURqkssb2SH03k&callback=initMap"
     async defer></script>
-    <input type="button" onclick="location.href='/friends'"value="ちょっと完成形と違うけどとりあえず選んだていで">
   </body>
 </html>
