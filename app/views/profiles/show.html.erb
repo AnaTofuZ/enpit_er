@@ -1,0 +1,11 @@
+<% if logged_in? %>
+   <h1>Profiles確認</h1>
+      <% if profile_define(@user) %>
+         <% if @user %>
+           <%= @user.name %>,
+           <%= @user.email %>
+         <% end  %>
+      <% else %>
+         <p>hogegeg!!</p>
+      <% end %>
+<% end %>

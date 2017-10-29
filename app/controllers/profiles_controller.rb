@@ -9,7 +9,7 @@ def create
    @user = user
    @profile = user.build_profile(profile_param)
    if @profile.save
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "プロフィールの登録が完了しました!"
       redirect_to root_url
    else
       redirect_to root_url
@@ -17,9 +17,11 @@ def create
 end
 
 def show
-   @user = User.find(params[:id])
-   @profile = @user.profiles
+   @user = User.find(session[:user_id])
+   @profile = @user.profile
 end
+
+
 
   private
 
