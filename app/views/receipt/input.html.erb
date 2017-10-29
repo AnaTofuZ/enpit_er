@@ -1,7 +1,6 @@
 <h1>レシートを登録するページ</h1>
 <% browser = Browser.new( request.env['HTTP_USER_AGENT'] ) %>
 <% if browser.device.mobile? %>
-<%=      render html: 'mobile' %>
   <% if Rails.env.development? %>
     <h2>これはモバイル画面です</h2>
   <% end %>
