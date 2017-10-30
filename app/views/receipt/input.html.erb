@@ -1,4 +1,21 @@
 <h1>レシートを登録するページ</h1>
-<input type="file">
+<% browser = Browser.new( request.env['HTTP_USER_AGENT'] ) %>
+<% if browser.device.mobile? %>
+  <% if Rails.env.development? %>
+    <h2>これはモバイル画面です</h2>
+  <% end %>
+  カメラでの撮影、またはファイルを選択してください
+  <input type="file" accept="image/*"><br>
+<% else %>
+  <% if Rails.env.development? %>
+    <h2>これはPC画面です</h2>
+  <% end %>
+  ファイルを選択してください
+  <input type="file"><br>
+<% end %>
+<br>
+<input type="button" onclick="location.href='/receipt/confrimate'"value="送信">
 <!-- urlは残り物リストに飛ばしてねー -->
+<br><br><br>
+現在の残り物はこちら
 <input type="button" onclick="location.href='/list'"value="残り物リストに飛ぶよー">
