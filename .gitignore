@@ -22,4 +22,9 @@
 
 .byebug_history
 /vendor/bundle
-.envrc
+
+
+
+# Ignore Spring files.
+/spring/*.pid
+

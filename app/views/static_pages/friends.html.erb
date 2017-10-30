@@ -18,18 +18,21 @@
   <form name="form" action="">
     <div id="Users">
         <p>一緒に食べたい人を選んでください</p>
-        
+
         <input id="Checkbox1" type="checkbox"><label for="checkbox1">アブラナシヤサイカラメマシニンニクスクナメ次郎君</label><br/>
         <input id="Checkbox2" type="checkbox"><label for="checkbox2">はらぺこアオムシ</label><br/>
         <input id="Checkbox3" type="checkbox"><label for="checkbox3">Aさん</label><br/>
         <input id="Checkbox3" type="checkbox"><label for="checkbox4">Bさん</label><br/>
 
+        <%@users.each do |u| %>
+         <input type="checkbox"><%= u.user.name %><br />
+        <% end %>
         <input type="button" value="確定" onclick="location.href='/recipe'" />
         </div>
 
     </form>
 
   <div id="recipe"></div>
-  
+
 </body>
 </html>
