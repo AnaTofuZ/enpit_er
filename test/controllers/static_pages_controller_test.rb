@@ -9,7 +9,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", help_path
     assert_select "a[href=?]", list_path
     assert_select "a[href=?]", signup_path
-     assert_select "a[href=?]", receipt_input_path 
+
   end
 
   test "should get help" do
@@ -18,7 +18,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_template layout: "layouts/application"
     assert_select "a[href=?]", root_path, count: 2
     assert_select "a[href=?]", help_path
-    <% if false %>assert_select "a[href=?]", list_path<% end %> 
+    assert_select "a[href=?]", list_path
   end
 
 end
