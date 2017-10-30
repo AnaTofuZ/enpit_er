@@ -11,28 +11,7 @@
 
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <%= link_to "レシコミ", root_path, id: "logo" %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <%= link_to "Home",   root_path %>
-            </li>
-            <li>
-              <%= link_to "Help",   help_path %>
-            </li>
-            <li>
-              <%= link_to "Log in", signup_path %>
-            </li>
-            <li>
-              <%= link_to "残り物リスト",   list_path %>
-            </li>
-            <li>
-              <%= link_to "レシートを登録する", receipt_input_path %>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <%= render 'layouts/header' %>
     </header>
     <div class="container">
       <% flash.each do |message_type, message| %>
