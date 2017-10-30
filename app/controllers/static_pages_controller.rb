@@ -9,6 +9,7 @@ class StaticPagesController < ApplicationController
   end
 
   def friends
+     @users = Profile.where(place_id: 1)
   end
 
   def recipe
@@ -17,4 +18,3 @@ class StaticPagesController < ApplicationController
   def mailbox
   end
 end
-
