@@ -1,5 +1,6 @@
+# coding: utf-8
 Rails.application.routes.draw do
-
+  get 'meeting_places/new'
   root 'static_pages#home'
 
   get 'receipt/input'
