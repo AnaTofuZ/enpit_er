@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/authorize', to:'line_notify#authorize'
   get 'static_pages/community'
   get 'static_pages/map'
+  get 'static_pages/mailbox'
   get 'receipt/input'
   get 'receipt/confrimate'
   resources :users

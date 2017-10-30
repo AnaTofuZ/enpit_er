@@ -13,5 +13,8 @@ class StaticPagesController < ApplicationController
 
   def recipe
   end
+
+  def mailbox
+  end
 end
 
