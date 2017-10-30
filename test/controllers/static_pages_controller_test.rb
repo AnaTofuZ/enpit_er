@@ -10,6 +10,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", list_path
     assert_select "a[href=?]", signup_path
     assert_select "a[href=?]", receipt_input_path
+    assert_select "a[href=?]", static_pages_mailbox_path
   end
 
   test "should get help" do
