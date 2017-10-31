@@ -18,8 +18,6 @@ Rails.application.routes.draw do
 
   # commityな部分
   get 'static_pages/community'
-  get 'static_pages/map'
-  get 'static_pages/mailbox'
   get 'receipt/input'
   get 'receipt/confrimate'
   
