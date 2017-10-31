@@ -1,13 +1,15 @@
 <div class="center jumbotron">
-  <h1>Welcome to the Sample App</h1>
+  <h1>レシコミ</h1>
 
-  <h2>
-    This is the home page for the
-    <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
 
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "レシートを登録する", receipt_input_path , class: "btn btn-lg btn-primary" %>
+
+  <%= render 'shared/list' %>
+
+  <%= link_to "自分のプロフィール", new_profile_path%>
+<br>
+  <%= link_to "コミュニティを作ろう！", static_pages_map_path%>
+
+
 </div>
 

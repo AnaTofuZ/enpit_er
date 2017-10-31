@@ -1,0 +1,27 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+  <%= link_to "レシコミ", root_path, id: "logo" %>
+  <nav>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <%= link_to "Home",   root_path %>
+      </li>
+      <!-- <li> -->
+        <%#= link_to "Help",   help_path %>
+      </li>
+      <li>
+        <%= link_to "Log in", login_path %>
+      </li>
+      <li>
+        <%= link_to "残り物リスト", list_path %>
+      </li>
+      <li>
+        <%= link_to "レシートを登録する", receipt_input_path %>
+      </li>
+      <!-- <li> -->
+        <%#= link_to "受信ボックス", static_pages_mailbox_path %>
+      <!-- </li> -->
+    </ul>
+  </nav>
+</div>
+</header>
