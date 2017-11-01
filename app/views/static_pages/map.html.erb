@@ -14,25 +14,58 @@
     <script>
       var map;
       function initMap() {
+
         // 琉大の座標
-        ryukyuUniv = {lat: 26.247582, lng: 127.765142}
+        ryukyuUniv = {lat: 26.253234, lng: 127.766366}
+        // キタローの座標
+        southLawson = {lat: 26.254681, lng: 127.763753}
+        // キリ学の座標
+        ChiriUniv = {lat: 26.238249, lng: 127.755593}
+
         map = new google.maps.Map(document.getElementById('map'), {
-          // 座標
-          center: ryukyuUniv,
+          // mapを表示するときの真ん中となる座標 (今は琉大法文)
+          center: {lat: 26.247582, lng: 127.765142},
           // 拡大率
-          zoom: 18
+          zoom: 14
         });
 
-        // マーカーを表示
+        // 琉大工学部のマーカーを表示
         var marker = new google.maps.Marker({
         position: ryukyuUniv,
         map: map,
-        title: 'なに見てんだよ'
+        title: '琉大工学部'
         });
 
-        // clickアクション, ページが遷移するよ
+        // キタローのマーカーを表示
+        var marker2 = new google.maps.Marker({
+        position: southLawson,
+        map: map,
+        title: 'キタロー'
+        });
+
+        // キリ学のマーカーを表示
+        var marker3 = new google.maps.Marker({
+        position: ChiriUniv,
+        map: map,
+        title: 'キリ学'
+        });
+
+        // 琉大マーカーのclickアクション, ページが遷移するよ
         marker.addListener('click', function() {
+          // 今は仮のリンク先
           location.href = "/friends";          
+        });
+        
+        // キタローマーカーのclickアクション, ページが遷移するよ
+        marker2.addListener('click', function() {
+          // 今は仮のリンク先
+          location.href = "/recipe";          
+        });
+
+        // キリ学マーカーのclickアクション, ページが遷移するよ
+        marker3.addListener('click', function() {
+          // 今は仮のリンク先
+          location.href = "/list";          
         });
 
       }
