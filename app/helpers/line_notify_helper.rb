@@ -15,7 +15,7 @@ module LineNotifyHelper
 	            'client_id' => 'AE3ab3vVKQtglAtqfNOrqq',
 	            'redirect_uri'=> $redirect_uri,
 	            'scope' => 'notify',
-	            'state' => 'aaa',
+	            'state' => 'aa',
 	            'response_mode' => 'form_post'
       }
     #リダイレクト
