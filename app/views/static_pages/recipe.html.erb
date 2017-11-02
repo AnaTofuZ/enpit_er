@@ -57,20 +57,37 @@
       </div>
 
 
-      <% if false %>
-      <%# とりあえずコメント%>
       <div class="nabe2">
            <a href="https://cookpad.com/recipe/3902277"><h1>超簡単節約♪冷蔵庫の残り物でちゃんこ鍋♪</h1></a>
            <%= image_tag 'cook_pad.jpg', :width => '400', :height => '300', :align => 'right' %>
            <%# 画像はaseets/imagesにいれればok %>
            <h2>材料</h2>
-              <ul>
-                 <li>牛肉</li>
-                 <li>ネギ</li>
-                 <li>シャンプー</li>
-                 <li>白菜</li>
-                 <li>きのこ</li>
-              </ul>
+              <table>
+               <tr>
+                  <th>豚バラ薄切り肉</th>
+                  <th>300g</th>
+               </tr>
+               <tr>
+                  <th>白菜</th>
+                  <th>700g(8枚)</th>
+               </tr>
+               <tr>
+                  <th>人参</th>
+                  <th>適宜</th>
+               </tr>
+               <tr>
+                  <th>小(万能)ねぎ</th>
+                  <th>適宜</th>
+               </tr>
+               <tr>
+                  <th>水</th>
+                  <th>800ml (4カップ)</th>
+               </tr>
+               <tr>
+                  <th>ヤマサ昆布つゆ白だし</th>
+                  <th>100ml(1/2カップ)</th>
+               </tr>
+              </table>
            <h3>料理方法</h3>
                <ol>
                   <li>材料をきる。鍋にだし汁約800、お塩小さじ半分、醤油・みりん・お酒各大2をいれ火をつける。具材をいれて火が通れば完成</li>
@@ -78,7 +95,6 @@
                </ol>
             <p>これにする! <input type="radio">   </p>
       </div>
-      <% end %>
 
    <input type="button" value="確定" onclick="location.href='static_pages/community'" />
 </div>
