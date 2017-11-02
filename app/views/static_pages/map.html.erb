@@ -16,11 +16,11 @@
       function initMap() {
 
         // 琉大の座標
-        ryukyuUniv = {lat: 26.253234, lng: 127.766366}
+        const ryukyuUniv = {lat: 26.253234, lng: 127.766366}
         // キタローの座標
-        southLawson = {lat: 26.254681, lng: 127.763753}
+        const southLawson = {lat: 26.254681, lng: 127.763753}
         // キリ学の座標
-        ChiriUniv = {lat: 26.238249, lng: 127.755593}
+        const ChiriUniv = {lat: 26.238249, lng: 127.755593}
 
         map = new google.maps.Map(document.getElementById('map'), {
           // mapを表示するときの真ん中となる座標 (今は琉大法文)
@@ -30,21 +30,21 @@
         });
 
         // 琉大工学部のマーカーを表示
-        var marker = new google.maps.Marker({
+        const marker = new google.maps.Marker({
         position: ryukyuUniv,
         map: map,
         title: '琉大工学部'
         });
 
         // キタローのマーカーを表示
-        var marker2 = new google.maps.Marker({
+        const marker2 = new google.maps.Marker({
         position: southLawson,
         map: map,
         title: 'キタロー'
         });
 
         // キリ学のマーカーを表示
-        var marker3 = new google.maps.Marker({
+        const marker3 = new google.maps.Marker({
         position: ChiriUniv,
         map: map,
         title: 'キリ学'
