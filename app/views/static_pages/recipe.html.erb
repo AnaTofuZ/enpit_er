@@ -1,3 +1,4 @@
+<%# TODO:このheadとmeta部分はlayoutsに切り出して移動する %>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,10 @@
     <script type="text/javascript" language="javascript">
     </script>
 </head>
+  <%# ここまではapplication.html.erbで書かれているので削除対象 %>
+
+
+  <%# TODO:レシピDBから持ってきてレンダリング %>
   <h1>〜なべ〜</h1>
   <%= image_tag 'nabe.jpg', :width => '400', :height => '300', :align => 'right' %>
   <h2>材料</h2>
