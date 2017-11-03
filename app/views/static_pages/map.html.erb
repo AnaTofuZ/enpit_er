@@ -9,7 +9,7 @@ function initMap() {
   // キタローの座標
   const southLawson = {lat: 26.254681, lng: 127.763753}
   // キリ学の座標
-  const ChiriUniv = {lat: 26.238249, lng: 127.755593}
+  const chiriUniv = {lat: 26.238249, lng: 127.755593}
 
   map = new google.maps.Map(document.getElementById('map'), {
     // mapを表示するときの真ん中となる座標 (今は琉大法文)
@@ -35,22 +35,22 @@ function initMap() {
   const southLawsonMarker = markerCreate(southLawson, 'キタロー');
 
   // キリ学のマーカーを表示
-  const ChiriUniv =  markerCreate(ChiriUniv, 'キリ学');
+  const chiriUnivMarker =  markerCreate(chiriUniv, 'キリ学');
 
   // 琉大マーカーのclickアクション, ページが遷移するよ
-  ryukyuUnivMarker.addListener('click', function() {
+  ryukyuUnivMarker.addListener('click', () => {
     // 今は仮のリンク先
     location.href = "/friends";          
   });
 
   // キタローマーカーのclickアクション, ページが遷移するよ
-  southLawsonMarker.addListener('click', function() {
+  southLawsonMarker.addListener('click', () => {
     // 今は仮のリンク先
     location.href = "/recipe";          
   });
 
   // キリ学マーカーのclickアクション, ページが遷移するよ
-  ChiriUniv.addListener('click', function() {
+  chiriUnivMarker.addListener('click', () => {
     // 今は仮のリンク先
     location.href = "/list";          
   });
