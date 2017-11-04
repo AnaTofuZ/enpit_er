@@ -2,16 +2,16 @@ class LineNotifyController < ApplicationController
   include LineNotifyHelper
   protect_from_forgery :only => ["authorize"]
   def authorize
-    if logged_in?
-      #認証,トークン取得が行える
-      if !params[:code]
+    #認証,トークン取得が行える
+    if !params[:code]
+      if logged_in?
         line_notify_authorize
-      elsif params[:state] == "aa" #ハッシュ機能か何かでそいつ自身の暗号を作成しておく 
-        line_notify_get_token params[:code]
-        user=User.find_by(id: session[:user_id])
-        user.notifytoken = session["access_token"]
-        user.save
       end
+    elsif params[:state] == "aa" #ハッシュ機能か何かでそいつ自身の暗号を作成しておく 
+      token = line_notify_get_token params[:code]
+      user=User.find(1)
+      user.notifytoken = token
+      user.save
     end
   end
 end
