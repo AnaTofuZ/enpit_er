@@ -39,24 +39,33 @@ module LineNotifyHelper
     res = http.request(req)
     result = JSON.parse(res.body)
     session[:access_token]=result['access_token']
-    render html: session[:access_token]
   end
   #トークン期限確認
   def line_notify_token_status?
     status_url = "https://notify-api.line.me/api/status"
   end
   #通知(送るユーザー,メッセージ,写真) 送る度に呼び出す形式
-  def line_notify_send_message(message)
+  def line_notify_send_message(token,message,imageThumbnail="No img",imageFullsize="No img",imageFile="No img")
     token_url = UIR.parse("https://notify-api.line.me/api/notify")
     http = Net::HTTP.new(token_url.host, token_url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     req = Net::HTTP::Post.new(token_url.path)
-    req["Authorization"] = "Bearer " + session[:access_token]
+    req["Authorization"] = "Bearer " + token
     #メッセージ及び画像ごとに形式の変換（配列形式で送る場合の条件分岐を行えるようにする）
-    req.set_form_data({
-            "message" => "鍋がオススメです"
-          })
+    data={
+      "message" => message
+    }
+    if imageThumbnail != "No img"
+      data.store("imageThumbnail",imageThumbnail)
+    end
+    if imageFullsize != "No img"
+      data.store("imageFullsize",imageFullsize)
+    end
+    if imageFile != "No img"
+      data.store("imageFile",imageFile)
+    end
+    req.set_form_data(data)
     res = http.request(req)
     result = JSON.parse(res.body)
     if result['status'] != '200'
