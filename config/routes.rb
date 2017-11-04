@@ -13,10 +13,9 @@ Rails.application.routes.draw do
 # アプリケーション全体の機能
   get  '/help',  to:'static_pages#help'
 
-namespace :community do
+scope '/community' do
      get  '/map',  to:'static_pages#map'
      get  '/map/:id',  to:'static_pages#map', as: :map_id
-     get  '/belongs',  to:'static_pages#friends'
      get  '/recipe',  to:'static_pages#recipe'
 end
 
