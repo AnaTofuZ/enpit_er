@@ -6,8 +6,8 @@ module LineNotifyHelper
   # TODO リダイレクト先の確認(リダイレクト先は後で必ず変更する事)
   $redirect_uri='https://rails-tutorial2-doublequel.c9users.io/authorize'.freeze 
 
-  $id = 	"AE3ab3vVKQtglAtqfNOrqq"#ENV["LINE_ID"].freeze
-  $secret = "Y82tINHu6dGdmejvZdtBfEkP2COzwbMSOI4BIHUCvaL"#ENV["LINE_SECRET"].freeze
+  $id = 	ENV["LINE_ID"].freeze
+  $secret = ENV["LINE_SECRET"].freeze
   #登録認証
   def line_notify_authorize()
     auth_url = "https://notify-bot.line.me/oauth/authorize?"
