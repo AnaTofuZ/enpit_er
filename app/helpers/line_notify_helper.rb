@@ -6,8 +6,8 @@ module LineNotifyHelper
   # TODO リダイレクト先の確認(リダイレクト先は後で必ず変更する事)
   $redirect_uri='https://rails-tutorial2-doublequel.c9users.io/authorize'.freeze 
 
-  $id = ENV["LINE_ID"].freeze
-  $secret = ENV["LINE_SECRET"].freeze
+  $id = 	"AE3ab3vVKQtglAtqfNOrqq"#ENV["LINE_ID"].freeze
+  $secret = "Y82tINHu6dGdmejvZdtBfEkP2COzwbMSOI4BIHUCvaL"#ENV["LINE_SECRET"].freeze
   #登録認証
   def line_notify_authorize()
     auth_url = "https://notify-bot.line.me/oauth/authorize?"
@@ -38,7 +38,8 @@ module LineNotifyHelper
           })
     res = http.request(req)
     result = JSON.parse(res.body)
-    session[:access_token]=result['access_token']
+    logger.debug(result)
+    return result['access_token']
   end
   #トークン期限確認
   def line_notify_token_status?
@@ -46,7 +47,7 @@ module LineNotifyHelper
   end
   #通知(送るユーザー,メッセージ,写真) 送る度に呼び出す形式
   def line_notify_send_message(token,message,imageThumbnail="No img",imageFullsize="No img",imageFile="No img")
-    token_url = UIR.parse("https://notify-api.line.me/api/notify")
+    token_url = URI.parse("https://notify-api.line.me/api/notify")
     http = Net::HTTP.new(token_url.host, token_url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
