@@ -4,7 +4,11 @@ one:
   user_id: 1
   place_id: 1
   birthday: 2011-11-11
+  hobby: programing with C
+  job: programing with Java
 two:
-  user_id: 1
+  user_id: 2
   place_id: 1
   birthday: 2011-11-11
+  hobby: programing with Perl
+  job: programing with ruby

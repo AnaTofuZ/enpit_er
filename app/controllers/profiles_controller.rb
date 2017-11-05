@@ -1,3 +1,4 @@
+# coding: utf-8
 class ProfilesController < ApplicationController
   before_action :logged_in_user,except: [:create,:destroy]
   def new
@@ -24,16 +25,20 @@ def show
    @profile = @user.profile
 end
 
+def edit
+  @user = User.find(params[:id])
+end
 
 
   private
+
 
   def user
     @user ||= User.find_by(id: session[:user_id])
   end
 
   def profile_param
-     params.require(:profile).permit(:place_id)
+     params.require(:profile).permit(:place_id,:sex,:job,:hobby)
   end
 
 end

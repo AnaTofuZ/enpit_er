@@ -3,6 +3,9 @@
       <% if profile_define %>
            <p> お名前 : <%= @user.name %>, </p>
            <p> 集合場所 : <%= show_place(@user.profile.place_id) %></p> <br />
+           <p> 性別 : <%= @profile.sex %></p>
+           <p> 趣味 : <%= @profile.job %></p>
+           <p> 職業 : <%= @profile.hobby %></p>
       <% else %>
           <p>プロフィールがまだ済んでない様です… <%= link_to "あなたとプロフィール今すぐ登録!", new_profile_path %></p>
       <% end %>
