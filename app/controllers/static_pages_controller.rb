@@ -17,9 +17,6 @@ class StaticPagesController < ApplicationController
       end
 
       @users = Profile.where(place_id: place_id)
-#      render action: 'friends'
-      redirect_to action: 'friends'
-      return
   end
 
   def recipe
