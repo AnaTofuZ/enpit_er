@@ -1,20 +1,12 @@
-  <form name="form" action="">
-    <div id="Users">
+<div class="friends">
+        <p><%= @place_name %>に集合できる人たちです!</p>
         <p>一緒に食べたい人を選んでください</p>
 
-        <input id="Checkbox1" type="checkbox"><label for="checkbox1">アブラナシヤサイカラメマシニンニクスクナメ次郎君</label><br/>
-        <input id="Checkbox2" type="checkbox"><label for="checkbox2">はらぺこアオムシ</label><br/>
-        <input id="Checkbox3" type="checkbox"><label for="checkbox3">Aさん</label><br/>
-        <input id="Checkbox3" type="checkbox"><label for="checkbox4">Bさん</label><br/>
-
-        <%@users.each do |u| %>
-         <input type="checkbox"><%= u.user.name %><br />
-        <% end %>
-        <input type="button" value="確定" onclick="location.href='/recipe'" />
-        </div>
-
-    </form>
-
-  <div id="recipe"></div>
-
-</html>
+   <%= form_tag(recipe_path, method: "get") do %>
+      <% @users.each do |u| %>
+      <%= check_box_tag 'user_id', u.user_id,checked = false, :id => u.user_id %>
+      <%= label_tag 'u.user.name', u.user.name %>
+      <% end %>
+   <%= submit_tag("選択!!") %>
+   <% end %>
+</div>

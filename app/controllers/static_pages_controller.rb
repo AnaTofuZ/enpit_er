@@ -10,8 +10,9 @@ class StaticPagesController < ApplicationController
 
   def friends
       place_id = params[:id]
-      # とりあえずの方法としてhelperのshow_placeを使用(plceを今後分ける)
+      # とりあえずの方法としてshow_placeを使用(plceを今後分ける)
       @place_name = show_place(place_id)
+
       if @place_name.nil?
          redirect_to root_path
       end
