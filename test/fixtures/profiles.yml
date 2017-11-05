@@ -3,8 +3,8 @@
 one:
   user_id: 1
   place_id: 1
-  birthday_id: 2011-11-11
+  birthday: 2011-11-11
 two:
   user_id: 1
   place_id: 1
-  birthday_id: 2011-11-11
+  birthday: 2011-11-11
