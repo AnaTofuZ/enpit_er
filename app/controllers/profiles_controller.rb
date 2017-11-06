@@ -1,5 +1,6 @@
+# coding: utf-8
 class ProfilesController < ApplicationController
-  before_action :logged_in_user,except: [:create,:destroy]
+  before_action :logged_in_user,:show,:user,except: [:create,:destroy]
   def new
     @user = user
    if @user.profile
@@ -25,16 +26,15 @@ def show
 end
 
 def edit
-    @user ||= User.find_by(id: session[:user_id])
-    @profile = @user.profile
 end
 
 def update
     @user ||= User.find_by(id: session[:user_id])
     @profile = @user.profile
     if @profile.update_attributes(profile_param)
+       redirect_to profile_url
     else
-      render '../profile'
+       render 'edit'
     end
 end
 
@@ -46,6 +46,6 @@ end
   end
 
   def profile_param
-     params.require(:profile).permit(:place_id,:sex,:job,:hobby,:purpose)
+     params.require(:profile).permit(:place_id,:sex,:birthday,:job,:hobby,:purpose)
   end
 end
