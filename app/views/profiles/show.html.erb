@@ -11,6 +11,8 @@
            <p> 趣味 : <%= @profile.job %></p>
 
            <p> レシコミをご利用の目的 : <%= @profile.purpose %>
+
+           <p><%= link_to "プロフィールを編集", edit_profile_path(current_user)%></p>
       <% else %>
           <p>プロフィールがまだ済んでない様です… <%= link_to "あなたとプロフィール今すぐ登録!", new_profile_path %></p>
       <% end %>
