@@ -33,16 +33,16 @@ class StaticPagesController < ApplicationController
   private
 
   def show_place(place_id)
-        case place_id.to_i
-        when 1 then
-           "琉大工学部"
-        when 2 then
-           "北口ローソン"
-        when 3 then
-           "キリ学"
-        else
-           nil
-        end
+      case place_id.to_i
+      when 1 then
+         "琉大工学部"
+      when 2 then
+         "北口ローソン"
+      when 3 then
+         "キリ学"
+      else
+         nil
+      end
   end
 
 
