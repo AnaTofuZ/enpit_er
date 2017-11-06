@@ -1,6 +1,6 @@
 module LineNotifyHelper
   require 'net/https'
-  require 'uri'
+  require 'cgi'
   
   # TODO リダイレクト先の確認(リダイレクト先は後で必ず変更する事)
   $redirect_uri='https://rails-tutorial2-doublequel.c9users.io/authorize'.freeze 
@@ -18,7 +18,7 @@ module LineNotifyHelper
 	            'response_mode' => 'form_post'
       }
     #リダイレクト
-    redirect_to auth_url + sss.map{|k,v| URI.encode(k.to_s) + "=" + URI.encode(v.to_s)}.join("&")
+    redirect_to auth_url + sss.map{|k,v| CGI.escape(k.to_s) + "=" + CGI.escape(v.to_s)}.join("&")
   end
   
   #トークン取得
