@@ -2,7 +2,7 @@ module LineNotifyHelper
   require 'net/https'
   require 'cgi'
   #登録認証
-  def line_notify_authorize()
+  def line_notify_authorize
     redirect_uri='https://rececomi.herokuapp.com/authorize'.freeze 
     auth_url = "https://notify-bot.line.me/oauth/authorize?"
     sss = {  'response_type' => 'code',
