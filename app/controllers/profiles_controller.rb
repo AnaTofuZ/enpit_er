@@ -38,7 +38,7 @@ end
   end
 
   def profile_param
-     params.require(:profile).permit(:place_id,:sex,:job,:hobby)
+     params.require(:profile).permit(:place_id,:sex,:job,:hobby,:purpose)
   end
 
 end
