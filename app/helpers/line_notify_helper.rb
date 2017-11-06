@@ -1,18 +1,13 @@
 module LineNotifyHelper
   require 'net/https'
   require 'cgi'
-  
-  # TODO リダイレクト先の確認(リダイレクト先は後で必ず変更する事)
-  $redirect_uri='https://rails-tutorial2-doublequel.c9users.io/authorize'.freeze 
-
-  $id = ENV["LINE_ID"].freeze
-  $secret = ENV["LINE_SECRET"].freeze
   #登録認証
   def line_notify_authorize()
+    redirect_uri='https://rails-tutorial2-doublequel.c9users.io/authorize'.freeze 
     auth_url = "https://notify-bot.line.me/oauth/authorize?"
     sss = {  'response_type' => 'code',
 	            'client_id' => 'AE3ab3vVKQtglAtqfNOrqq',
-	            'redirect_uri'=> $redirect_uri,
+	            'redirect_uri'=> redirect_uri,
 	            'scope' => 'notify',
 	            'state' => 'aa',
 	            'response_mode' => 'form_post'
@@ -23,6 +18,9 @@ module LineNotifyHelper
   
   #トークン取得
   def line_notify_get_token(code)
+    redirect_uri='https://rails-tutorial2-doublequel.c9users.io/authorize'.freeze 
+    id = ENV["LINE_ID"].freeze
+    secret = ENV["LINE_SECRET"].freeze
     get_url = URI.parse('https://notify-bot.line.me/oauth/token')
     http = Net::HTTP.new(get_url.host, get_url.port)
     http.use_ssl = true
@@ -31,9 +29,9 @@ module LineNotifyHelper
     req.set_form_data({
             "grant_type" => "authorization_code",
             "code" => code,
-            "redirect_uri" => $redirect_uri,
-            "client_id" => $id,
-            "client_secret" => $secret
+            "redirect_uri" => redirect_uri,
+            "client_id" => id,
+            "client_secret" => secret
           })
     res = http.request(req)
     result = JSON.parse(res.body)
