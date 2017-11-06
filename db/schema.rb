@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20171104070729) do
     t.date "birthday", null: false
     t.string "job"
     t.string "hobby"
+    t.string "purpose"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
