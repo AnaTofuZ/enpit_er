@@ -29,7 +29,6 @@ def edit
 end
 
 def update
-    @user ||= User.find_by(id: session[:user_id])
     @profile = @user.profile
     if @profile.update_attributes(profile_param)
        redirect_to profile_url

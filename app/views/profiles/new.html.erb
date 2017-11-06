@@ -12,6 +12,7 @@
           end_year: (Time.now.year - 15),
           default: Date.new(1989, 1, 1),
           date_separator: '/')%>
+
     <p>職業を設定して下さい</p>
         <%= f.label :job, "職業"%>
         <%= f.text_field :job%>
@@ -20,7 +21,7 @@
         <%= f.label :hobby, "趣味"%>
         <%= f.text_field :hobby%>
 
-    <p>レシコミをご利用になる目的を設定して下さい．(例1:残り物を無くすため;例2:友達を増やしたい等)</p>
+    <p>レシコミでやりたいこと！(例：残り物をなくしたい！,友達を増やしたい!...etc)</p>
         <%= f.label :purpose, "目的"%>
         <%= f.text_field :purpose%>
 
