@@ -1,6 +1,6 @@
     <h1>Profiles編集</h1>
     <p>集合場所を設定してください</p>
-    <%= form_for @user.profile, :url => {:controller => :profiles, :action => :user} do |f| %>
+    <%= form_for @user.profile, :url => {:controller => :profiles, :action => :update} do |f| %>
         <%= f.select(:place_id,options_for_select([['琉大工学部', 1], ['北口ローソン', 2],['キリ学',3]]) )%>
     <p>生年月日を入力して下さい</p>
         <%=f.label :birthday%>
