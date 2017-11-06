@@ -10,7 +10,7 @@ class StaticPagesController < ApplicationController
 
   def friends
       place_id = params[:id]
-      # とりあえずの方法としてshow_placeを使用(plceを今後分ける)
+      # とりあえずの方法としてshow_placeを使用(placeを今後分ける可能性がある)
       @place_name = show_place(place_id)
 
       if @place_name.nil?
