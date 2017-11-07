@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
 scope '/community' do
      get  '/map',  to:'static_pages#map'
-     get  '/map/:id',  to:'static_pages#map', as: :map_id
+     get  '/map/:id',  to:'static_pages#friends', as: :map_id
      get  '/recipe',  to:'static_pages#recipe'
 end
 

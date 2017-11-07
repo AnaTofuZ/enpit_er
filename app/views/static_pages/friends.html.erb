@@ -1,38 +1,17 @@
-<!DOCTYPE html>
-<html lang="ja" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<div class="friends">
+         <% if !@users.empty? %>
+           <p><%= @place_name %>に集合できる人たちです!</p>
+          <p>一緒に食べたい人を選んでください</p>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="あなたの残り物を管理するツール">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="残り物を管理するツール">
-    <meta name="twitter:description" content="enpitER班の作成しているツールです">
-    <title>冷蔵庫.com</title>
-    <script type="text/javascript" language="javascript">
+            <%= form_tag(recipe_path, method: "get") do %>
+               <% @users.each do |u| %>
+               <%= check_box_tag 'user_id', u.user_id,checked = false, :id => u.user_id %>
+               <%= label_tag 'u.user.name', u.user.name %>
+               <% end %>
+            <%= submit_tag("選択!!") %>
+            <% end %>
 
-    </script>
-</head>
-<body>
-  <form name="form" action="">
-    <div id="Users">
-        <p>一緒に食べたい人を選んでください</p>
-
-        <input id="Checkbox1" type="checkbox"><label for="checkbox1">アブラナシヤサイカラメマシニンニクスクナメ次郎君</label><br/>
-        <input id="Checkbox2" type="checkbox"><label for="checkbox2">はらぺこアオムシ</label><br/>
-        <input id="Checkbox3" type="checkbox"><label for="checkbox3">Aさん</label><br/>
-        <input id="Checkbox3" type="checkbox"><label for="checkbox4">Bさん</label><br/>
-
-        <%@users.each do |u| %>
-         <input type="checkbox"><%= u.user.name %><br />
-        <% end %>
-        <input type="button" value="確定" onclick="location.href='/recipe'" />
-        </div>
-
-    </form>
-
-  <div id="recipe"></div>
-
-</body>
-</html>
+         <%  else %>
+            <p> まだ<%= @place_name %>に集まれる人はいないようです…</p>
+         <% end %>
+</div>
