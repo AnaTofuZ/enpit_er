@@ -1,27 +1,35 @@
 <% if logged_in? %>
     <h1>Profiles設定</h1>
-<p>集合場所を設定してください</p>
+    <p>集合場所を設定してください</p>
     <%= form_for @user.profile, :url => {:controller => :profiles, :action => :create} do |f| %>
         <%= f.select(:place_id,options_for_select([['琉大工学部', 1], ['北口ローソン', 2],['キリ学',3]]) )%>
-    <p>生年月日を入力して下さい</p>
+
+        <p>性別を選択して下さい</p>
+        <label><%= f.radio_button :sex, "male" %>男性</label>
+        <label><%= f.radio_button :sex, "female" %>女性</label>
+        <label><%= f.radio_button :sex, "notknown" %>不明</label>
+        <label><%= f.radio_button :sex, "notapplicable" %>その他</label>
+
+
+        <p>生年月日を入力して下さい</p>
         <%=f.label :birthday%>
         <%=f.date_select(
-          :birthday,
-          use_month_numbers: true,
-          start_year:1930,
-          end_year: (Time.now.year - 15),
-          default: Date.new(1989, 1, 1),
-          date_separator: '/')%>
+            :birthday,
+            use_month_numbers: true,
+            start_year:1930,
+            end_year: (Time.now.year - 15),
+            default: Date.new(1989, 1, 1),
+            date_separator: '/')%>
 
-    <p>職業を設定して下さい</p>
+        <p>職業を設定して下さい</p>
         <%= f.label :job, "職業"%>
         <%= f.text_field :job%>
 
-    <p>趣味を設定して下さい</p>
+        <p>趣味を設定して下さい</p>
         <%= f.label :hobby, "趣味"%>
         <%= f.text_field :hobby%>
 
-    <p>レシコミでやりたいこと！(例：残り物をなくしたい！,友達を増やしたい!...etc)</p>
+        <p>レシコミでやりたいこと！(例：残り物をなくしたい！,友達を増やしたい!...etc)</p>
         <%= f.label :purpose, "目的"%>
         <%= f.text_field :purpose%>
 
