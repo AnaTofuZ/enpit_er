@@ -1,4 +1,3 @@
-# coding: utf-8
 module ProfilesHelper
 	def profile_define
 		!current_user.profile.nil?
