@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/login', to:'sessions#create'
   delete  '/logout', to:'sessions#destroy'
   get '/authorize', to:'line_notify#authorize'
-  post '/authorize', to:'line_notify#authorize'
+  post '/authorize', to:'line_notify#token'
 
 # アプリケーション全体の機能
   get  '/help',  to:'static_pages#help'
