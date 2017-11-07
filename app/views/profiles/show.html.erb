@@ -7,15 +7,7 @@
 
         <p> お誕生日 : <%= @profile.birthday %></p>
 
-        <p> 性別 :
-            <% if @profile.sex == "male" then%>
-                男性
-            <% elsif @profile.sex == "female" then%>
-                女性
-            <% else %>
-                その他
-            <% end %>
-        </p>
+        <p> 性別 : <%= show_gender(@profile.sex)%></p>
 
         <p> 職業 : <%= @profile.job %></p>
 
