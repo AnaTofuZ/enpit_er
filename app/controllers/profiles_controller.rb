@@ -1,4 +1,3 @@
-# coding: utf-8
 class ProfilesController < ApplicationController
   before_action :logged_in_user,:show,:user,except: [:create,:destroy]
   def new
@@ -7,7 +6,7 @@ class ProfilesController < ApplicationController
       redirect_to profile_url
    else
        user.build_profile
-    end
+   end
   end
 
 def create
