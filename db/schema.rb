@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20171104070729) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "sex", limit: 1, default: 1, null: false
-    t.date "birthday", null: false
+    t.date "birthday", default: "1997-01-01", null: false
     t.string "job"
     t.string "hobby"
     t.string "purpose"
