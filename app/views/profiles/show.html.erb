@@ -1,22 +1,22 @@
 <% if logged_in? %>
-   <h1>Profiles確認</h1>
-      <% if profile_define %>
-           <p> お名前 : <%= @user.name %></p>
+    <h1>Profiles確認</h1>
+    <% if profile_define %>
+        <p> お名前 : <%= @user.name %></p>
 
-           <p> 集合場所 : <%= show_place(@user.profile.place_id) %></p>
+        <p> 集合場所 : <%= show_place(@user.profile.place_id) %></p>
 
-           <p> お誕生日 : <%= @profile.birthday %></p>
+        <p> お誕生日 : <%= @profile.birthday %></p>
 
-           <p> 性別 : <%= @profile.sex %></p>
+        <p> 性別 : <%= show_gender(@profile.sex)%></p>
 
-           <p> 職業 : <%= @profile.job %></p>
+        <p> 職業 : <%= @profile.job %></p>
 
-           <p> 趣味 : <%= @profile.hobby %></p>
+        <p> 趣味 : <%= @profile.hobby %></p>
 
-           <p> レシコミでやりたいこと! : <%= @profile.purpose %>
+        <p> レシコミでやりたいこと! : <%= @profile.purpose %>
 
-           <p><%= link_to "プロフィールを編集", edit_profile_path%></p>
-      <% else %>
-          <p>プロフィールがまだ済んでない様です… <%= link_to "あなたとプロフィール今すぐ登録!", new_profile_path %></p>
-      <% end %>
-<% end %>
+        <p><%= link_to "プロフィールを編集", edit_profile_path%></p>
+            <% else %>
+        <p>プロフィールがまだ済んでない様です… <%= link_to "あなたとプロフィール今すぐ登録!", new_profile_path %></p>
+            <% end %>
+    <% end %>
