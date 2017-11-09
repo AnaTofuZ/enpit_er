@@ -17,6 +17,8 @@ deploy:
   app: rececomi
   on:
     repo: AnaTofuZ/enpit_er
+  run:
+      - 'rails db:migrate'
 env:
   global:
   - secure: XObA/9jKoC07sT9JFstvVheTCxYaWEgLXNRn+rp+tWAXUY+XsIBTF6Hww/yi1KKSCeCQm4Wmtd7xsFQqc0cjTYFh42V0Sz0FtPHLsQutb5STcDZglpGdZ1xJjAqJFzHJ1GQxbGveeptFtxdRXmai/DDARIeZ/Bf9am+6vzKm6RFFrYPAMrzAK1TkWxOitgBWUZGPuEwu6FfbwXtx9AqCpnD+Qc/kyLC+NIbKLZOtC1mb7D5r5K1DcnEah4ALzY/T5nDoLOLVVl9WwWi03WjWJe2GUdC/aGCiuDJ4AaVuQy9DYvd2daJ6IFmbWWL5c0+P1ZHvMKCMl5N33MYB7HWDSJfRt3e178qAyiP/tmt4j3ZyzDsokCG0rJUv0oyrcWRJlebrdNHcoeRWhNSCPAtRQ08hsD+dwWm68b8jkmRcUFLE1cYeQMBUq5+G6nfuavK7LaX1T38+W4YpE1RiiXhxix5fjr/136ZXLFjSQHIRO2vyehId7bnFgX1fwjhlpmwltRfuK+9Rtqyb2Wo6TfUdJlxYmQ8LflFmA2dlov4VGRoJBX97udFjaMoFqaqkmYlRcpe9nHRTBzb8p+0krFV2KK5IcOq96jEWFBtqOdBsU5YBGOzKHg5Klrd0s8DEYsglqZiiUa+LAIfbpwNnHDn7LM0uEo04OPwBtneXDNJPv/I=
