@@ -3,10 +3,11 @@ module LineNotifyHelper
   require 'cgi'
   #登録認証
   def line_notify_authorize
-    redirect_uri='https://rececomi.herokuapp.com/authorize'.freeze 
+    redirect_uri=URI.parse('https://rails-tutorial2-doublequel.c9users.io/authorize')#https://rececomi.herokuapp.com  https://rails-tutorial2-doublequel.c9users.io
+    id = ENV["LINE_ID"].freeze
     auth_url = "https://notify-bot.line.me/oauth/authorize?"
     sss = {  'response_type' => 'code',
-	            'client_id' => 'AE3ab3vVKQtglAtqfNOrqq',
+	            'client_id' => id,
 	            'redirect_uri'=> redirect_uri,
 	            'scope' => 'notify',
 	            'state' => 'aa',
@@ -18,7 +19,7 @@ module LineNotifyHelper
   
   #トークン取得
   def line_notify_get_token(code)
-    redirect_uri='https://rececomi.herokuapp.com/authorize'.freeze 
+    redirect_uri=URI.parse('https://rails-tutorial2-doublequel.c9users.io/authorize')
     id = ENV["LINE_ID"].freeze
     secret = ENV["LINE_SECRET"].freeze
     get_url = URI.parse('https://notify-bot.line.me/oauth/token')
@@ -44,7 +45,7 @@ module LineNotifyHelper
   end
   #通知(送るユーザー,メッセージ,写真) 送る度に呼び出す形式
   def line_notify_send_message(token,message,imageThumbnail="No img",imageFullsize="No img",imageFile="No img")
-    token_url = URI.parse("https://notify-api.line.me/api/notify")
+    token_url = URI.parse('https://notify-api.line.me/api/notify')
     http = Net::HTTP.new(token_url.host, token_url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
