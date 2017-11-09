@@ -33,6 +33,8 @@ class StaticPagesController < ApplicationController
   def map
   end
 
+  def community
+  end
 
   private
 
