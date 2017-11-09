@@ -1,15 +1,17 @@
 <div class="center jumbotron">
-  <h1>レシコミ</h1>
 
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    <br>
+    <br>
+    <%= link_to "レシートを登録する", receipt_input_path, class: "btn btn-lg btn-primary" %>
+    <br>
+    <br>
+    <%= link_to "自分のプロフィール", new_profile_path, class: "btn btn-lg btn-primary"%>
+    <br>
+    <br>
+    <%= link_to "コミュニティを作ろう！", map_path, class: "btn btn-lg btn-primary"%>
 
-  <%= render 'shared/list' %>
-
-  <%= link_to "自分のプロフィール", new_profile_path%>
-<br>
-  <%= link_to "コミュニティを作ろう！", map_path%>
-
-
+    <%= render 'shared/list' %>
 </div>
 
