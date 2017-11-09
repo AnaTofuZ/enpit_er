@@ -2,13 +2,17 @@ class LineNotifyController < ApplicationController
   include LineNotifyHelper
   protect_from_forgery :only => ["authorize"]
   def authorize
-    #認証,トークン取得,通知はここから
-    if !params[:code]
+    #認証,トークン取得が行える
+    if logged_in?
       line_notify_authorize
-    elsif params[:state] == "aaa"
-      line_notify_get_token params[:code]
     end
   end
-  # get '/authorize', to:'line_notify#authorize'
-  # post '/authorize', to:'line_notify#authorize'
+  def token
+    if params[:code]
+      token = line_notify_get_token params[:code]
+      @user = current_user
+      @user.notifytoken = token
+      @user.save
+    end
+  end
 end
