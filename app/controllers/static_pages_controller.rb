@@ -17,7 +17,7 @@ class StaticPagesController < ApplicationController
          redirect_to root_path
       end
 
-      @users = Profile.where(place_id: place_id)
+      @profiles = Profile.where(place_id: place_id)
   end
 
   def recipe
@@ -54,7 +54,7 @@ class StaticPagesController < ApplicationController
   end
 
   def find_users(users_id)
-    @users ||=  User.where id: users_id
+     @users ||=  User.where id: users_id
   end
 
 

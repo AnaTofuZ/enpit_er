@@ -4,9 +4,9 @@
           <p>一緒に食べたい人を選んでください</p>
 
             <%= form_tag(recipe_path, method: "get") do %>
-               <% @users.each do |u| %>
-               <%= check_box_tag 'friends_form[users][]', u.user.id%>
-               <%= u.user.name %>
+               <% @profiles.each do |p| %>
+               <%= check_box_tag 'friends_form[users][]', p.user.id%>
+               <%= p.user.name %>
                <% end %>
             <%= submit_tag("選択!!") %>
             <% end %>
