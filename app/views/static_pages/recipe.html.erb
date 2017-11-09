@@ -17,6 +17,12 @@
   <%# TODO:レシピDBから持ってきてレンダリング %>
   <%# 雑にリンク貼るとかでも良いのでは? %>
 <div id="recipe">
+      <div class="member">
+         <% @users.each do |user| %>
+         <p><%= user.name =%>さん</p>
+         <% end %>
+         <p>で作るメニューを選択してください!!</p>
+      </div>
       <div class="nabe1">
            <a href="https://cookpad.com/recipe/3902277"><h1>超簡単節約♪冷蔵庫の残り物でちゃんこ鍋♪</h1></a>
            <%= image_tag 'cook_pad.jpg', :width => '400', :height => '300', :align => 'right' %>

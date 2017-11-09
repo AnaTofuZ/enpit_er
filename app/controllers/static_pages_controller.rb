@@ -21,6 +21,10 @@ class StaticPagesController < ApplicationController
   end
 
   def recipe
+      @users = find_users(friends_form[:users])
+      if @users.nil?
+         redirect_to root_path
+      end
   end
 
   def mailbox
@@ -43,6 +47,14 @@ class StaticPagesController < ApplicationController
       else
          nil
       end
+  end
+
+  def friends_form
+     params.require(:friends_form).permit(users:[])
+  end
+
+  def find_users(users_id)
+    @users ||=  User.where id: users_id
   end
 
 
