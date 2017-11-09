@@ -21,6 +21,12 @@ class StaticPagesController < ApplicationController
   end
 
   def recipe
+    @placeName = params[:placeName]
+    @usersId = params[:user_id]
+  end
+  def community
+    @placeName = params[:placeName]
+    @usersId = params[:usersId]
   end
 
   def mailbox
