@@ -108,12 +108,6 @@
          <%= label_tag(:recipe, "これにする!!") %>
       </div>
 
-
-
-         <% send_users = [] %>
-         <% @users.each do |user| %>
-            <% send_users.push(user.id) %>
-         <% end %>
-         <%= hidden_field_tag 'users[]', send_users %>
+      <%= hidden_field_tag 'users[]', @users.map(&:id) %>
       <%= submit_tag("選択") %> <% end %>
 </div>
