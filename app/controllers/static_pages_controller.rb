@@ -34,6 +34,10 @@ class StaticPagesController < ApplicationController
   end
 
   def community
+     reserve_params = recipe_form
+     # ここで usersとレシピをインスタンス化する
+     @users = find_users(reserve_params[:users])
+     @receip_id = reserve_params[:recipe]
   end
 
   private
@@ -57,6 +61,10 @@ class StaticPagesController < ApplicationController
 
   def find_users(users_id)
      @users ||=  User.where id: users_id
+  end
+
+  def recipe_form
+     params.require(:recipe_form).permit(:recipe,users:[])
   end
 
 

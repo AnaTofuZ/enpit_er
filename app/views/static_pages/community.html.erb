@@ -1,6 +1,22 @@
-<h1>コミュニティ名</h1>
-<p><input type="text" name="community"></p>
-<h1>日時</h1>
-<p><input type="text" name="date"></p>
-<%# トップページが出来ればそこに飛ばしてー%>
-<input type="button" value="コミュニティ作成" onclick="location.href='/'" />
+<div id="make_community">
+
+	<% if @users.nil? %>
+		<p>おっとユーザーが選択されてないようです。。。</p>
+		<%= link_to 'コミュニティ作りをもう一度する!', map_path %>
+	<% else %>
+		   <%= form_tag(root_path, method: "get") do %> <%# ここのpathを通知用のエンドポイントに変えてくれ!!%>
+				<%# LINE通知に飛ばす-> その後リダイレクトでメッセージと共にトップ %>
+				<h1>コミュニティ名</h1>
+				<%= text_field_tag :'comunity_name' %>
+
+				<h1>日時</h1>
+            <%= label_tag(:date) %>
+				<%= datetime_select 'community_form[date]', {} ,:use_month_numbers => true%>
+
+				<%# hiddenでusersのidとレシピidを送る %>
+		      <%= hidden_field_tag 'community_form[users][]', @users.map(&:id) %>
+		      <%= hidden_field_tag 'community_form[recipe_id]', @receip_id %>
+				<%= submit_tag("コミュニティ作成") %>
+			<% end %>
+	<% end %>
+</div>
