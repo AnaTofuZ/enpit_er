@@ -3,7 +3,7 @@ module LineNotifyHelper
   require 'cgi'
   #登録認証
   def line_notify_authorize
-    redirect_uri=URI.parse('https://rails-tutorial2-doublequel.c9users.io/authorize')#https://rececomi.herokuapp.com  https://rails-tutorial2-doublequel.c9users.io
+    redirect_uri=URI.parse('https://rececomi.herokuapp.com/authorize')#https://rececomi.herokuapp.com  https://rails-tutorial2-doublequel.c9users.io
     id = ENV["LINE_ID"].freeze
     auth_url = "https://notify-bot.line.me/oauth/authorize?"
     sss = {  'response_type' => 'code',
@@ -19,7 +19,7 @@ module LineNotifyHelper
   
   #トークン取得
   def line_notify_get_token(code)
-    redirect_uri=URI.parse('https://rails-tutorial2-doublequel.c9users.io/authorize')
+    redirect_uri=URI.parse('https://rececomi.herokuapp.com/authorize')
     id = ENV["LINE_ID"].freeze
     secret = ENV["LINE_SECRET"].freeze
     get_url = URI.parse('https://notify-bot.line.me/oauth/token')
