@@ -17,10 +17,14 @@ class StaticPagesController < ApplicationController
          redirect_to root_path
       end
 
-      @users = Profile.where(place_id: place_id)
+      @profiles = Profile.where(place_id: place_id)
   end
 
   def recipe
+      @users = find_users(friends_form[:users])
+      if @users.nil?
+         redirect_to root_path
+      end
   end
 
   def mailbox
@@ -29,6 +33,12 @@ class StaticPagesController < ApplicationController
   def map
   end
 
+  def community
+     reserve_params = recipe_form
+     # ここで usersとレシピをインスタンス化する
+     @users = find_users(reserve_params[:users])
+     @receip_id = reserve_params[:recipe]
+  end
 
   private
 
@@ -43,6 +53,18 @@ class StaticPagesController < ApplicationController
       else
          nil
       end
+  end
+
+  def friends_form
+     params.require(:friends_form).permit(users:[])
+  end
+
+  def find_users(users_id)
+     @users ||=  User.where id: users_id
+  end
+
+  def recipe_form
+     params.require(:recipe_form).permit(:recipe,users:[])
   end
 
 

@@ -1,12 +1,12 @@
 <div class="friends">
-         <% if !@users.empty? %>
+         <% if !@profiles.empty? %>
            <p><%= @place_name %>に集合できる人たちです!</p>
           <p>一緒に食べたい人を選んでください</p>
 
             <%= form_tag(recipe_path, method: "get") do %>
-               <% @users.each do |u| %>
-               <%= check_box_tag 'user_id', u.user_id,checked = false, :id => u.user_id %>
-               <%= label_tag 'u.user.name', u.user.name %>
+               <% @profiles.each do |p| %>
+               <%= check_box_tag 'friends_form[users][]', p.user.id%>
+               <%= p.user.name %>
                <% end %>
             <%= submit_tag("選択!!") %>
             <% end %>
