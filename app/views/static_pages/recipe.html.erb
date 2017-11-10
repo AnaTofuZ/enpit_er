@@ -60,7 +60,7 @@
                   <li>材料をきる。鍋にだしシャンプー約800、お塩小さじ半分、醤油・みりん・お酒各大2をいれ火をつける。具材をいれて火が通れば完成</li>
                   <li>補足 しめはおうどんを入れたり、おじやにしたり(*^.^*)</li>
                </ol>
-         <%= radio_button_tag(:recipe, 1) %>
+         <%= radio_button_tag('recipe_form[recipe]', 1) %>
          <%= label_tag(:recipe, "これにする!!") %>
       </div>
 
@@ -104,10 +104,10 @@
                   <li>豚肉の色が変わり、白菜が柔らかくなったら小口切りの小（万能）ねぎと白いりごまを散らし、火がとおったら頂く。</li>
                </ol>
 
-         <%= radio_button_tag(:recipe, 2) %>
+         <%= radio_button_tag('recipe_form[recipe]', 2) %>
          <%= label_tag(:recipe, "これにする!!") %>
       </div>
 
-      <%= hidden_field_tag 'users[]', @users.map(&:id) %>
+      <%= hidden_field_tag 'recipe_form[users][]', @users.map(&:id) %>
       <%= submit_tag("選択") %> <% end %>
 </div>
