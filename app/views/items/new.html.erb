@@ -1,0 +1,13 @@
+<h1>Items#new</h1>
+<p>食品を入力してください</p>
+<%= form_for @user.item,:url => {:controller => :items, :action => :new} do |f| %>
+    <%= f.label :food, "食品"%>
+    <%= f.text_field :food%><br>
+
+    <%= f.label :food, "食品"%>
+    <%= f.text_field :food%><br>
+
+    <%= f.label :food, "食品"%>
+    <%= f.text_field :food%><br>
+    <%= f.submit "登録" %>
+<% end  %>
