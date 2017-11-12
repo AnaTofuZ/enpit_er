@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
       redirect_to profile_url
    else
        user.build_profile
-    end
+   end
   end
 
 def create

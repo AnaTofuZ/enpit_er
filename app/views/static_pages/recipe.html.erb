@@ -53,7 +53,7 @@
                   <li>材料をきる。鍋にだしシャンプー約800、お塩小さじ半分、醤油・みりん・お酒各大2をいれ火をつける。具材をいれて火が通れば完成</li>
                   <li>補足 しめはおうどんを入れたり、おじやにしたり(*^.^*)</li>
                </ol>
-            <p>これにする! <input type="radio">   </p>
+            <p>これにする! <input type="radio" value="ちゃんこ鍋">   </p>
       </div>
 
 <hr>
@@ -95,8 +95,15 @@
                   <li>[1]に水800mlと「ヤマサ昆布つゆ白だし」100mlを入れ、型で抜いた人参をのせ、火にかける。</li>
                   <li>豚肉の色が変わり、白菜が柔らかくなったら小口切りの小（万能）ねぎと白いりごまを散らし、火がとおったら頂く。</li>
                </ol>
-            <p>これにする! <input type="radio">   </p>
+            <p>これにする! <input type="radio" value="ミルフィーユ鍋">   </p>
       </div>
 
-   <input type="button" value="確定" onclick="location.href='static_pages/community'" />
+   <input type="button" value="確定" onclick="location.href='/static_pages/community'" />
+   <%= form_tag("/static_pages/community", method: "get") do %>
+      <%= hidden_field_tag 'placeName', @placeName %>
+      <% @usersId.each do |u| %>
+        <%= hidden_field_tag 'usersId[]', u %>
+      <% end %>
+      <%= submit_tag("コミュニティ作成へ") %>
+    <% end %>
 </div>
