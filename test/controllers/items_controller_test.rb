@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class ItemsControllerTest < ActionDispatch::IntegrationTest
-  test "should get edit_items" do
-    get items_edit_items_url
+  test "should get new" do
+    get items_new_url
     assert_response :success
   end
 
