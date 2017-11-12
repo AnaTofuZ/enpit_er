@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'items/edit_items'
+
   root 'static_pages#home'
 
 

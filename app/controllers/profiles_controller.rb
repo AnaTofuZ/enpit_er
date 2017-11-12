@@ -1,4 +1,3 @@
-# coding: utf-8
 class ProfilesController < ApplicationController
   before_action :logged_in_user,:show,:user,except: [:create,:destroy]
   def new
