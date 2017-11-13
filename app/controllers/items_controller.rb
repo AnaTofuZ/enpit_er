@@ -1,11 +1,12 @@
 class ItemsController < ApplicationController
   def new
     @user = user
+    @item = Item.new
   end
 
   def create
-    @user = user
-    if @item = @user.create_item(item_param)
+    @item = Item.new(item_param)
+    if @item.save
       flach[:success] = "食材の登録が完了しました！"
       redirect_to root_url
     else
@@ -23,6 +24,6 @@ class ItemsController < ApplicationController
   end
 
   def item_param
-    params.require(:item).permit(:food)
+    params.require(:item).permit(:user_id,:food)
   end
 end
