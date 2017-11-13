@@ -1,15 +1,16 @@
 class ItemsController < ApplicationController
   def new
-    @user = user
+    @user = current_user
     @item = Item.new
   end
 
   def create
     @item = Item.new(item_param)
     if @item.save
-      flach[:success] = "食材の登録が完了しました！"
+      flash[:success] = "食材の登録が完了しました！"
       redirect_to root_url
     else
+      flash[:fail] = "食材の登録が完了しました！"
       redirect_to root_url
     end
   end
@@ -19,11 +20,11 @@ class ItemsController < ApplicationController
     @item = @user.item
   end
 
-  def user
+  def current_user
     @user ||= User.find_by(id: session[:user_id])
   end
 
   def item_param
-    params.require(:item).permit(:user_id,:food)
+    params.require(:item).permit(:food).merge({user_id: current_user.id})
   end
 end
