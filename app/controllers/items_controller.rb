@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def new
     @user = user
+    user.build_items
   end
 
   def create

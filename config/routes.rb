@@ -33,4 +33,5 @@ end
 
   resources :users
   resource :profile ,except: :destroy
+  resource :items
 end
