@@ -1,5 +1,9 @@
 class StaticPagesController < ApplicationController
   def home
+    if logged_in?
+      @user = User.find(session[:user_id])
+      @items = Item.where(user_id: @user)
+    end
   end
 
   def help
