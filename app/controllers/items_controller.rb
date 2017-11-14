@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
       flash[:success] = "食材の登録が完了しました！"
       redirect_to root_url
     else
-      flash[:fail] = "食材の登録が完了しました！"
+      flash[:fail] = "食材の登録に失敗しました"
       redirect_to root_url
     end
   end
