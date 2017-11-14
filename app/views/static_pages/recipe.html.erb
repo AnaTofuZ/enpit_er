@@ -98,7 +98,6 @@
             <p>これにする! <input type="radio" value="ミルフィーユ鍋">   </p>
       </div>
 
-   <input type="button" value="確定" onclick="location.href='/static_pages/community'" />
    <%= form_tag("/static_pages/community", method: "get") do %>
       <%= hidden_field_tag 'placeName', @placeName %>
       <% @usersId.each do |u| %>
