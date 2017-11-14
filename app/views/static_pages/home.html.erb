@@ -1,20 +1,27 @@
 <div class="center jumbotron">
 
 <% if logged_in? %>
-    <br>
-    <br>
-    <%#今は，レシート読み込みしないため．%>
-    <%# link_to "レシートを登録する", receipt_input_path, class: "btn btn-lg btn-primary" %>
-    <%= link_to "食品を登録する", new_items_path, class: "btn btn-lg btn-primary" %>
-    <br>
-    <br>
-    <%= link_to "自分のプロフィール", new_profile_path, class: "btn btn-lg btn-primary"%>
-    <br>
-    <br>
-    <%= link_to "コミュニティを作ろう！", map_path, class: "btn btn-lg btn-primary"%>
-    <br>
-    <br>
-    <%= render 'shared/list' %>
+      <% if find_line? %>
+       <br>
+       <br>
+       <%#今は，レシート読み込みしないため．%>
+       <%# link_to "レシートを登録する", receipt_input_path, class: "btn btn-lg btn-primary" %>
+       <%= link_to "食品を登録する", new_items_path, class: "btn btn-lg btn-primary" %>
+       <br>
+       <br>
+       <%= link_to "自分のプロフィール", new_profile_path, class: "btn btn-lg btn-primary"%>
+       <br>
+       <br>
+       <%= link_to "コミュニティを作ろう！", map_path, class: "btn btn-lg btn-primary"%>
+       <br>
+       <br>
+       <%= render 'shared/list' %>
+
+       <% else %>
+       <br>
+       <%= link_to "LINEを登録する", authorize_path, class: "btn btn-lg btn-primary"%>
+       <br>
+       <% end %>
 <% else %>
     <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 <% end %>

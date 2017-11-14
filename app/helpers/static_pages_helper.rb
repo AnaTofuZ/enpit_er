@@ -10,4 +10,8 @@ module StaticPagesHelper
     def logged_in?
         !current_user.nil?
     end
+
+	 def find_line?
+		 !current_user.notifytoken.nil?
+	 end
 end
