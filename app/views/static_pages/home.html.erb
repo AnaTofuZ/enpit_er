@@ -1,9 +1,6 @@
 <div class="center jumbotron">
 
-
 <% if logged_in? %>
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-<% else %>
     <br>
     <br>
     <%#今は，レシート読み込みしないため．%>
@@ -18,5 +15,7 @@
     <br>
     <br>
     <%= render 'shared/list' %>
+<% else %>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 <% end %>
 </div>
