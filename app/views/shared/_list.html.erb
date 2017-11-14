@@ -7,7 +7,7 @@
       <td><%= item.created_at.strftime('%m月%d日') %></td>
       <td><%= item.food %></td>
       <!-- ここをdeleteアクションにしたいね -->
-      <td><input type="button" value="削除"></th>
+      <td><%= link_to "delete", items_path(user_id: @user.id), method: :delete%></td>
     </tr>
   <% end %>
 <% end %>

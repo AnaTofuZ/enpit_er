@@ -20,6 +20,18 @@ class ItemsController < ApplicationController
     @item = @user.item
   end
 
+  def destroy
+    @user = User.find(params[:user_id])
+    @item = @user.item
+    @item.destroy
+    flash[:success] = "食品が削除されました．"
+    redirect_to root_url
+  end
+
+  def index
+    @item = Item.all
+  end
+
   def current_user
     @user ||= User.find_by(id: session[:user_id])
   end
