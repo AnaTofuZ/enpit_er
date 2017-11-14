@@ -1,0 +1,11 @@
+<div id="inputitem">
+    <h1>食品を入力してください</h1>
+    <%= form_for @item do |f| %>
+        <%= f.label :food, "食品"%>
+        <%= f.text_field :food%><br>
+        
+        <%= f.submit "登録",class: "btn btn btn-primary" %>
+    <% end  %>
+    <br />
+    <%= link_to "トップページに戻る", root_path ,class: "btn btn-sm btn-default"%>
+</div>

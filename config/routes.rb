@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   root 'static_pages#home'
 
 
@@ -25,7 +27,11 @@ end
   get 'receipt/input'
   get 'receipt/confrimate'
 
+  # item
+  get 'items/new'
+  get 'items/show'
 
   resources :users
   resource :profile ,except: :destroy
+  resource :items
 end
