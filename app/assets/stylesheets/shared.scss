@@ -2,9 +2,22 @@
   overflow:auto;
   width:1000px;
   height:200px;
-  padding:5px;
   border:1px solid #000;
   background-color:#F9F9F9;
-  color:#000;
-  font-size:12px;
+}
+
+table.food_tableList{
+  width:1000px;
+  height:200px;
+	border-collapse: collapse;
+	text-align: left;
+	line-height: 1.5;
+
+  td {
+  	width: 350px;
+  	padding: 20px;
+  	border: 1px solid #ccc;
+    border-width: 1px 0px;
   }
+
+}
