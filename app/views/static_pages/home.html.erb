@@ -1,6 +1,7 @@
 <div class="center jumbotron">
 
 <% if logged_in? %>
+      <% binding.pry %>
       <% if find_line? %>
        <br>
        <br>
@@ -11,9 +12,11 @@
        <br>
        <%= link_to "自分のプロフィール", new_profile_path, class: "btn btn-lg btn-primary"%>
        <br>
-       <br>
-       <%= link_to "コミュニティを作ろう！", map_path, class: "btn btn-lg btn-primary"%>
-       <br>
+      <% if defined_profile? %>
+          <br>
+          <%= link_to "コミュニティを作ろう！", map_path, class: "btn btn-lg btn-primary"%>
+          <br>
+      <% end %>
        <br>
        <%= render 'shared/list' %>
 

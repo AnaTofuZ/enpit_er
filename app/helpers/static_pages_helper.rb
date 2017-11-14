@@ -14,4 +14,8 @@ module StaticPagesHelper
 	 def find_line?
 		 !current_user.notifytoken.nil?
 	 end
+
+	 def defined_profile?
+		 !current_user.profile.nil?
+	 end
 end
