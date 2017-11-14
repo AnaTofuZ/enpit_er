@@ -15,14 +15,17 @@ class LineNotifyController < ApplicationController
       @user.notifytoken = token
       @user.save
     end
+   line_notify_send_message(@user.notifytoken,"この通知は確認用です")
+   flash[:success] = "LINEの登録が完了しました!"
+   redirect_to root_url
   end
   def sending
     #パラメータよりメッセージの作成:param一覧[comunity,member,recipe,place,date]
     users = User.find((params[:usersId].map(&:to_i)))
     message = "レシコミからです!!"+"\nコミュニティ名:"+params[:comunity]+"\n集合場所:"+params[:placeName]+"\n集合日時:"+params[:date]
-              #+"\nレシピ"+ params[:recipe] 
+              #+"\nレシピ"+ params[:recipe]
               #+"\nメンバー"+users.name
-    users.each do |m|  
+    users.each do |m|
       line_notify_send_message(m.notifytoken,message)
     end
     redirect_to root_url
