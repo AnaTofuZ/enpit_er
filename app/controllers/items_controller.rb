@@ -22,9 +22,13 @@ class ItemsController < ApplicationController
 
   def destroy
     @item_id = Item.find_by(id: params[:id],user_id: session[:user_id])
-    @item_id.destroy
-    flash[:success] = "食品が削除されました．"
-    redirect_to root_url
+    if @item_id.destroy
+      flash[:success] = "食品が削除されました．"
+      redirect_to root_url
+    else
+      flash[:fail] = "食材の削除に失敗しました"
+      redirect_to root_url
+    end    
   end
 
   def index
