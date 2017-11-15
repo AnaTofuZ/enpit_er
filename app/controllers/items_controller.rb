@@ -36,6 +36,6 @@ class ItemsController < ApplicationController
   end
 
   def item_param
-    params.require(:item).permit(:food,:id).merge({user_id: current_user.id})
+    params.require(:item).permit(:food).merge({user_id: current_user.id})
   end
 end
