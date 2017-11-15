@@ -6,10 +6,10 @@
             <%= form_tag(recipe_path, method: "get") do %>
               <%= hidden_field_tag 'placeName', @place_name %>
               <% @users.each do |u| %>
-              <%= check_box_tag 'user_id[]', u.user_id,checked = false, :id => u.user_id %>
-              <%= label_tag 'u.user.name', u.user.name %>
+                    <%= check_box_tag 'user_id[]', u.user_id,checked = false, :id => u.user_id %>
+                    <%= label_tag 'u.user.name', u.user.name %> <br />
               <% end %>
-            <%= submit_tag("選択!!") %>
+            <%= submit_tag("確定!!") %>
             <% end %>
 
          <%  else %>
