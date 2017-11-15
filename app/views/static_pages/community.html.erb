@@ -1,18 +1,12 @@
-<h1>コミュニティ名</h1>
-<p><input type="text" name="community"></p>
-<h1>日時</h1>
-<p><input type="text" name="date"></p>
-
-<%# トップページが出来ればそこに飛ばしてー%>
-<input type="button" value="コミュニティ作成" onclick="location.href='/'" />
 <%= form_tag(sending_path, method: "get") do %>
   <%= hidden_field_tag 'placeName', @placeName %>
   <% @usersId.each do |u| %>
     <%= hidden_field_tag 'usersId[]', u %>
   <% end %>
-  <%= label_tag :"コミュニティ名" %>
+  <h1><%= label_tag :"コミュニティ名" %></h1>
   <%= text_field_tag :'comunity' %> 
-  <%= label_tag :"日時" %>
+  <h1><%= label_tag :"日時" %></h1>
   <%= text_field_tag :"date" %>
+  <br><br>
   <%= submit_tag("コミュニティ作成") %>
 <% end %>
