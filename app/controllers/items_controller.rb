@@ -21,9 +21,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:user_id])
-    @item = @user.item
-    @item.destroy
+    @item_id = Item.find(params[:id])
+    @item_id.destroy
     flash[:success] = "食品が削除されました．"
     redirect_to root_url
   end
@@ -37,6 +36,6 @@ class ItemsController < ApplicationController
   end
 
   def item_param
-    params.require(:item).permit(:food).merge({user_id: current_user.id})
+    params.require(:item).permit(:food,:id).merge({user_id: current_user.id})
   end
 end
