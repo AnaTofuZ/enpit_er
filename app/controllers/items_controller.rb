@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item_id = Item.find(params[:id])
+    @item_id = Item.find_by(id: params[:id],user_id: params[:user_id])
     @item_id.destroy
     flash[:success] = "食品が削除されました．"
     redirect_to root_url
