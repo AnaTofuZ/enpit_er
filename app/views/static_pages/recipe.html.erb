@@ -18,6 +18,8 @@
   <%# 雑にリンク貼るとかでも良いのでは? %>
 <div id="recipe">
       <h1>作る料理を選択しよう！</h1>
+   <%= form_tag("/static_pages/community", method: "get") do %>
+
       <div class="nabe1">
 
            <a href="https://cookpad.com/recipe/3902277"><h1>超簡単節約♪冷蔵庫の残り物でちゃんこ鍋♪</h1></a>
@@ -55,7 +57,9 @@
                   <li>材料をきる。鍋にだしシャンプー約800、お塩小さじ半分、醤油・みりん・お酒各大2をいれ火をつける。具材をいれて火が通れば完成</li>
                   <li>補足 しめはおうどんを入れたり、おじやにしたり(*^.^*)</li>
                </ol>
-            <p>これにする! <input type="radio" value="ちゃんこ鍋">   </p>
+               <div id="rece1_button">
+                  <p>これにする! <%= radio_button_tag 'recipe_name', "ちゃんこ鍋" %></p>
+               </div>
       </div>
 
 <hr>
@@ -97,11 +101,12 @@
                   <li>[1]に水800mlと「ヤマサ昆布つゆ白だし」100mlを入れ、型で抜いた人参をのせ、火にかける。</li>
                   <li>豚肉の色が変わり、白菜が柔らかくなったら小口切りの小（万能）ねぎと白いりごまを散らし、火がとおったら頂く。</li>
                </ol>
-            <p>これにする! <input type="radio" value="ミルフィーユ鍋">   </p>
+               <div id="rece2_button">
+                  <p>これにする! <%= radio_button_tag 'recipe_name', "ミルフィーユ鍋" %></p>
+               </div>
       </div>
 
-   <%= form_tag("/static_pages/community", method: "get") do %>
-      <%= hidden_field_tag 'placeName', @placeName %>
+      <%= hidden_field_tag 'placeName', @placeName %> <%# form _for %>
       <% @usersId.each do |u| %>
         <%= hidden_field_tag 'usersId[]', u %>
       <% end %>
