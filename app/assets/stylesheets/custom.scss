@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
-@import "bootswatch/lumen/variables";
+@import "bootswatch/cerulean/variables"; // 
 @import "bootstrap";
-@import "bootswatch/lumen/bootswatch";
+@import "bootswatch/cerulean/bootswatch";
 @import "font-awesome";
 /* universal */
 
@@ -9,34 +9,34 @@ body {
   padding-top: 120px;
 }
 
-// section {
-//   overflow: auto;
-// }
+section {
+  overflow: auto;
+}
 
-// textarea {
-//   resize: vertical;
-// }
+textarea {
+  resize: vertical;
+}
 
-// .center {
-//   text-align: left;
-// }
+.center {
+  text-align: left;
+}
 
-// .center h1 {
-//   margin-bottom: 10px;
-// }
+.center h1 {
+  margin-bottom: 10px;
+}
 
-// /*header*/
-// #logo {
-//   float: left;
-//   margin-right: 10px;
-//   font-size: 1.7em;
-//   color: #fff;
-//   text-transform: uppercase;
-//   letter-spacing: -1px;
-//   padding-top: 9px;
-//   font-weight: bold;
-//   &:hover {
-//   color: #fff;
-//   text-decoration: none;
-//   }
-// }
+/*header*/
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+  color: #fff;
+  text-decoration: none;
+  }
+}
