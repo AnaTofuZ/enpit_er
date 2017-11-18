@@ -1,3 +1,5 @@
+<script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <h1>レシート内容の確認</h1>
 <!--ここに取得したレシート内容の一覧を表示する。-->
 <h2>以下のレシート情報が読み込まれました。</h2>
@@ -5,4 +7,25 @@
   <li>ネギ</li>
   <li>シャンプー</li>
   <li>きのこ</li>
-<%= link_to "確認", root_path %>
+<%= link_to "確認", root_path,  class: "btn btn-lg btn-primary" %>
+
+<h2>お試し画像処理</h2>
+
+元画像<br>
+<%#= image_tag 'Airbnb.png', :width => '320', :height => '340'%>
+<script>
+//   Tesseract.recognize("/assets/Airbnb.png",{lang:"jpn"})
+// .then(function(result){
+//     alert(result.text);
+// })
+</script>
+
+<%= image_tag @img_path, :width => '500'%>
+<script>
+  var fn = "<%= @img_path %>" ;
+  Tesseract.recognize(fn,{lang:"jpn"})
+.then(function(result){
+    <%#= File.delete(@deleteFile.to_s)  %>
+    alert(result.text);
+})
+</script>
