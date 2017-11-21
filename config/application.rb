@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Enpit
   class Application < Rails::Application
+Rails.application.config.assets.paths << Rails.root.join("assets","stylesheets","bootswatch","sketchy")
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
