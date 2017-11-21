@@ -6,3 +6,16 @@
   <li>シャンプー</li>
   <li>きのこ</li>
 <%= link_to "確認", root_path %>
+元画像<br>
+<%= image_tag @img_path, :width => '500'%>
+<br>
+<% if @text %>
+  <% fulltext=@text['responses'][0]['fullTextAnnotation']['text'] %>
+  <% stext = fulltext.split("\n") %>
+  <% stext.each do |st| %>
+    <%= st %><br>
+  <% end %>
+<% end %>
+<% if @message %>
+<%= @message %>
+<% end %>
