@@ -13,12 +13,13 @@ class ReceiptController < ApplicationController
     @img_path = "/"+uploaded_file.original_filename
     @deleteFile = Rails.root.join('public', uploaded_file.original_filename)
     
-    api_key = 'AIzaSyCMtEgxllJi8NSu8QUMcv9ahj2RLnoZa1M'
+    api_key = ENV["VISION_KEY"]
     gurl = "https://vision.googleapis.com/v1/images:annotate?key=#{api_key}"
     get_url = URI.parse(gurl)
     http = Net::HTTP.new(get_url.host, get_url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    logger.debug(get_url)
     req = Net::HTTP::Post.new(get_url)
     body={"requests": [{"image": {"content": Base64.encode64(@deleteFile.read)},"features": [{"type": "TEXT_DETECTION"}]}]}.to_json
     req["Content-Type"] = "application/json"
