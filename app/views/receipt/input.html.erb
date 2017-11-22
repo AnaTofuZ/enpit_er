@@ -7,7 +7,7 @@
   カメラでの撮影、またはファイルを選択してください
   <%= form_tag '/receipt/confrimate', method: 'post', multipart: true do %>
 	    <%= file_field :fileupload, :file %>
-	    <%= submit_tag '送信' %>
+	    <%= submit_tag '送信', class: "btn btn-lg btn-primary" %>
 	<% end %>
 <% else %>
   <% if Rails.env.development? %>
@@ -16,7 +16,7 @@
   ファイルを選択してください
   <%= form_tag '/receipt/confrimate', method: 'post', multipart: true do %>
 	    <%= file_field :fileupload, :file %>
-	    <%= submit_tag '送信' %>
+	    <%= submit_tag '送信' , class: "btn btn-lg btn-primary"%>
 	<% end %>
 <% end %>
 <br>
