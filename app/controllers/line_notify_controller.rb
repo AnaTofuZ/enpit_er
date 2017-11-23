@@ -20,6 +20,8 @@ class LineNotifyController < ApplicationController
    redirect_to root_url
   end
   def sending
+
+    access_counter #アクセスカウンタ
     #パラメータよりメッセージの作成:param一覧[comunity,member,recipe,place,date]
     users = User.find((params[:usersId].map(&:to_i)))
     message = "レシコミからです!!"+"\nコミュニティ名:"+params[:comunity]+"\n集合場所:"+params[:placeName]+"\n集合日時:"+params[:date]
@@ -30,4 +32,13 @@ class LineNotifyController < ApplicationController
     end
     redirect_to root_url
   end
+
+  private
+
+  def access_counter
+     Community_counters.increment_counter(:counter,:first)
+     counters = Community_counters.find(:first)
+     @counter =  counters.counter
+  end
+
 end
