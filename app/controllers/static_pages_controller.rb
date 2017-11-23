@@ -3,8 +3,6 @@ class StaticPagesController < ApplicationController
     if logged_in?
       @user = User.find(session[:user_id])
       @items = Item.where(user_id: @user)
-
-      @counter = access_counter_show
     end
       @counter = access_counter_show
   end
