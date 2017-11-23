@@ -3,10 +3,14 @@ class StaticPagesController < ApplicationController
     if logged_in?
       @user = User.find(session[:user_id])
       @items = Item.where(user_id: @user)
+
+      @counter = access_counter_show
     end
+      @counter = access_counter_show
   end
 
   def help
+   access_counter_increment
   end
 
   def list
@@ -55,5 +59,15 @@ class StaticPagesController < ApplicationController
       end
   end
 
+  def access_counter_increment
+     CommunityCounter.increment_counter(:counter,1)
+     counters = CommunityCounter.find(1)
+     @counter =  counters.counter
+  end
+
+  def access_counter_show
+     counters = CommunityCounter.find(1)
+     @counter =  counters.counter
+  end
 
 end

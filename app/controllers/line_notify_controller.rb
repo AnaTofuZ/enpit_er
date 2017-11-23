@@ -36,8 +36,8 @@ class LineNotifyController < ApplicationController
   private
 
   def access_counter
-     Community_counters.increment_counter(:counter,:first)
-     counters = Community_counters.find(:first)
+     CommunityCounter.increment_counter(:counter,1)
+     counters = CommunityCounter.find(1)
      @counter =  counters.counter
   end
 
