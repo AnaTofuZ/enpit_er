@@ -19,7 +19,6 @@
 <div id="recipe">
       <h1>作る料理を選択しよう！</h1>
    <%= form_tag("/static_pages/community", method: "get") do %>
-      <h2><%= submit_tag "確定!!" , :class => "btn btn-lg btn-primary" %></h2>
 
       <div class="nabe1">
 
@@ -111,5 +110,8 @@
       <% @usersId.each do |u| %>
         <%= hidden_field_tag 'usersId[]', u %>
       <% end %>
+
+      <%# -- buton --- %>
+     <h2><%= submit_tag "確定!!" , :class => "btn btn-lg btn-primary" %></h2>
     <% end %>
 </div>

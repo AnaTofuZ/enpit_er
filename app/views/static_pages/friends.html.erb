@@ -1,7 +1,8 @@
 <div class="friends">
          <% if !@users.empty? %>
            <p><%= @place_name %>に集合できる人たちです!</p>
-          <p>一緒に食べたい人を選んでください</p>
+             <p>一緒に食べたい人を選んでください</p>
+             <p><small>※自分自身も追加してください</small></p>
 
             <%= form_tag(recipe_path, method: "get") do %>
               <%= hidden_field_tag 'placeName', @place_name %>
