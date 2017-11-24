@@ -5,7 +5,8 @@ class StaticPagesController < ApplicationController
       @items   ||= Item.where(user_id: @user)
     else
       @counter ||= access_counter_show
-      @usersum ||= usersum end
+      @usersum ||= usersum
+    end
   end
 
   def help
