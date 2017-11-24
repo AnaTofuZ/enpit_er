@@ -5,16 +5,22 @@
     <h2>これはモバイル画面です</h2>
   <% end %>
   カメラでの撮影、またはファイルを選択してください
-  <input type="file" accept="image/*"><br>
+  <%= form_tag '/receipt/confrimate', method: 'post', multipart: true do %>
+	    <label>ファイル</label>
+	    <%= file_field :fileupload, :file %>
+	    <%= submit_tag '送信' %>
+	<% end %>
 <% else %>
   <% if Rails.env.development? %>
     <h2>これはPC画面です</h2>
   <% end %>
   ファイルを選択してください
-  <input type="file"><br>
+  <%= form_tag '/receipt/confrimate', method: 'post', multipart: true do %>
+	    <%= file_field :fileupload, :file %>
+	    <%= submit_tag '送信' %>
+	<% end %>
 <% end %>
 <br>
-<input type="button" onclick="location.href='/receipt/confrimate'"value="送信">
 <!-- urlは残り物リストに飛ばしてねー -->
 <br><br><br>
 現在の残り物はこちら
