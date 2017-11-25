@@ -1,3 +1,4 @@
+# coding: utf-8
 class LineNotifyController < ApplicationController
   include LineNotifyHelper
   protect_from_forgery :only => ["authorize"]
@@ -15,7 +16,7 @@ class LineNotifyController < ApplicationController
       @user.notifytoken = token
       @user.save
     end
-   line_notify_send_message(@user.notifytoken,"この通知は確認用です")
+   line_notify_send_message(@user.notifytoken,"この通知は確認用です.この通知のように，あなたへお誘いのLINEが届きます．")
    flash[:success] = "LINEの登録が完了しました!"
    redirect_to root_url
   end
