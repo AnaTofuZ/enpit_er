@@ -6,6 +6,9 @@
 
 
              <div class="table-responsive">
+
+                     <%= form_tag(recipe_path, method: "get") do %>
+                     <%= hidden_field_tag 'placeName', @place_name %>
                 <table class="table table-striped">
                    <thead>
                       <tr>
@@ -19,19 +22,19 @@
                       </tr>
                    </thead>
                    <tbody>
-
-                     <%= form_tag(recipe_path, method: "get") do %>
-                       <%= hidden_field_tag 'placeName', @place_name %>
                        <% @profiles.each do |p| %>
-                             <%= check_box_tag 'user_id[]', p.user_id,checked = false, :id => p.user_id %>
-                             <%= label_tag 'p.user.name', p.user.name %> <br />
+                           <tr />
+                                <th scope="row"><%= check_box_tag 'user_id[]', p.user_id,checked = false, :id => p.user_id %></th>
+                                <td><%= label_tag 'p.user.name', p.user.name %> </td>
+                                <td><%= show_gender(p.sex) %></td>
+                          </tr>
                        <% end %>
                    </tbody>
                  </table>
-              </div>
 
-            <%= submit_tag("確定!!") %>
-            <% end %>
+                 <%= submit_tag("確定!!") %>
+                 <% end %>
+              </div>
 
          <%  else %>
             <p> まだ<%= @place_name %>に集まれる人はいないようです…</p>
