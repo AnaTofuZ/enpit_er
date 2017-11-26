@@ -21,10 +21,11 @@
 
        <% else %>
        <br>
-       <p>レシコミはお客様への通知をLINEアプリケーションにより行います．</p>
-       <p>お手数ですが，LINEアプリケーションアカウントにご自身のメールアドレスをご登録の後，</p>
-       <p>レシコミへLINEアカウントを登録してください．</p>
        <%= link_to "LINEを登録する", authorize_path, class: "btn btn-lg btn-primary"%>
+       <p>レシコミはお客様への通知をLINEアプリケーションにより行います．<br />
+          お手数ですが，LINEアプリケーションアカウントにご自身のメールアドレスをご登録の後，<br />
+          レシコミへLINEアカウントを登録してください．<p />
+       <%= image_tag 'line_example.png', class="img-responsive" %>
        <br>
        <% end %>
 <% else %>
