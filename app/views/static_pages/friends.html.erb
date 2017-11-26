@@ -27,6 +27,10 @@
                                 <th scope="row"><%= check_box_tag 'user_id[]', p.user_id,checked = false, :id => p.user_id %></th>
                                 <td><%= label_tag 'p.user.name', p.user.name %> </td>
                                 <td><%= show_gender(p.sex) %></td>
+                                <td><%= age(p.birthday) %></td>
+                                <td><%= show_none_profile(p.job) %></td>
+                                <td><%= show_none_profile(p.hobby) %></td>
+                                <td><%= show_none_profile(p.purpose) %></td>
                           </tr>
                        <% end %>
                    </tbody>
