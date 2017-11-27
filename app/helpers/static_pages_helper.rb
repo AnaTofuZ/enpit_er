@@ -25,7 +25,7 @@ module StaticPagesHelper
     end
 
     def show_none_profile(prof)
-      if prof.empty?
+      if prof.blank?
          return '----  '
       end
       prof
