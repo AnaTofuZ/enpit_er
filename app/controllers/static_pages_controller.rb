@@ -1,10 +1,12 @@
 class StaticPagesController < ApplicationController
   def home
     if logged_in?
-      @user = User.find(session[:user_id])
-      @items = Item.where(user_id: @user)
+      @user    ||= User.find(session[:user_id])
+      @items   ||= Item.where(user_id: @user)
+    else
+      @counter ||= access_counter_show
+      @usersum ||= usersum
     end
-      @counter = access_counter_show
   end
 
   def help
@@ -68,4 +70,7 @@ class StaticPagesController < ApplicationController
      @counter =  counters.counter
   end
 
+  def usersum
+     @usersum = User.count
+  end
 end
