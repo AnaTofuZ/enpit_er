@@ -1,0 +1,2 @@
+class CommunityCounter < ApplicationRecord
+end
