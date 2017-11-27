@@ -25,7 +25,7 @@ class StaticPagesController < ApplicationController
          redirect_to root_path
       end
 
-      @users = Profile.where(place_id: place_id)
+      @profiles = Profile.where(place_id: place_id)
   end
 
   def recipe
