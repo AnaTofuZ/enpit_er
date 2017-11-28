@@ -21,16 +21,24 @@
 
        <% else %>
        <br>
+       <h1>LINE通知の設定</h1>
+       <p>レシコミはお客様への通知をLINEサービスにより行います．</p>
        <%= link_to "LINEを登録する", authorize_path, class: "btn btn-lg btn-primary"%>
-       <p>レシコミはお客様への通知をLINEアプリケーションにより行います．<br />
-          お手数ですが，LINEアプリケーションアカウントにご自身のメールアドレスをご登録の後，<br />
-          レシコミへLINEアカウントを登録してください．<p />
-       <%= image_tag 'line_example.png', class="img-responsive" %>
        <br>
+       <br>
+       <br>
+       <br>       
+       <h2>LINE認証のやりかた</h2>
+       <%= image_tag('LINE-1.jpg',class:"img-responsive") %>
+       <%= image_tag('LINE-2.jpg',class:"img-responsive") %>
+       <%= image_tag('LINE-3.jpg',class:"img-responsive") %>
+       <%= image_tag('LINE-4.jpg',class:"img-responsive") %>
+       <p>レシコミはお客様への通知をLINEサービスにより行います．<br />
+       <p>お手数ですが，LINEアプリケーションアカウントにご自身のキャリアのメールアドレスをご登録で無い方はご登録の後，レシコミへLINEアカウントを登録してください．<p />
        <% end %>
 <% else %>
     <%= link_to "新規登録", signup_path, class: "btn btn-lg btn-primary" %>
     <p> 既にこのアプリで<%= @usersum %>人の参加者の皆さんによって，<%= @counter %>件のコミュニティが作成されました!</p>
-    <%= link_to image_tag('6_001.jpg'),asset_path('rececomi_6.pdf') %>
+    <%= link_to image_tag('6_001.jpg',class:"img-responsive"),asset_path('rececomi_6.pdf') %>
 <% end %>
 </div>
