@@ -7,15 +7,24 @@
   <li>きのこ</li>
 <%= link_to "確認", root_path, class: "btn btn-lg btn-primary" %>
 元画像<br>
-<%= image_tag @img_path, :width => '500'%>
+<%#= image_tag @img_path, :width => '500'%>
 <br>
-<% if @text %>
-  <% fulltext=@text['responses'][0]['fullTextAnnotation']['text'] %>
-  <% stext = fulltext.split("\n") %>
+<% if !@text.nil? %>
+  <% stext = @text.split("\n") %>
+  <% 
+  if stext.include?("合 言十")
+    bbb=stext.index("合 言十")
+    stext.slice!(bbb..-1)
+  end
+  %>
+  <tr id="saku">
   <% stext.each do |st| %>
-    <%= st %><br>
+      <td><%= st %></td>
+      <td><%= link_to "削除", root_path ,class: "btn btn-lg btn-primary"%></td>
+      <br>
   <% end %>
+  </tr>
 <% end %>
-<% if @message %>
+<% if !@message.nil? %>
 <%= @message %>
 <% end %>
