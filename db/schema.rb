@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112090242) do
+ActiveRecord::Schema.define(version: 20171123081305) do
+
+  create_table "community_counters", force: :cascade do |t|
+    t.integer "counter", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.integer "user_id"

@@ -8,6 +8,8 @@ cache: bundler
 before_script:
 - bundle exec rails  db:create
 - bundle exec rails  db:migrate
+- bundle exec rails  db:seed
+
 script:
 - bundle exec rails test
 deploy:
@@ -19,6 +21,7 @@ deploy:
     repo: AnaTofuZ/enpit_er
   run:
   - rails db:migrate
+  - rails db:seed
 env:
   secure: CChAmUo+SaRJROVskHc3xDPbPFJafEimMIhaEuhfrxY70ZurjN+gOMINTY7g36T9Qbzmg4/FaNQVf1mWjxvrYlNIkgYrr6o63wYOI5E13yT1fSYb3UukRTRJO5oZU6n/xXiKqi4y4gHvi59w4RskRirPcSNnEHDCsCjQEI4g/7u8MCTAvEgH+mJ8mIlhEzhF0GixL0fzTWEsotddH/hI2A9SQKtBDr8o0BhbZNTB7PqS2OicPX+xVUS/ZIoRF3AVpjq49EJ0gF+lAkY3qTCH54KWAIbNzbp6u8pGRmxA9BzprCQZDEHHEdPYdHIQTgB2/Z7OaTyfyax14X6p3hRDl+cJrh9rr3YRfrrrwRPiHfADDTIXLJlltpWMKNXayxuC92ekcOHcrNTCcXIoAHYi8lbLmwlATBls3V3koO31dtVoFEHhXFxJ/5RZd/kIHpJ6Us/pX8pAhQSoQJIUP6iC6X/N03/Lu1f0irCtDihfx3Ir4KwqENE7czC9Y5MN5Yd1CkvsXkkAaOPxPmQL70kNJtqijZUJkUuto8I4oMQWKWIvobkNr1/sZ7NrzGec+Kr/QuRamkT2EaxsfetbGwPMIH5qIYbuDaYF2CdoBnvpa415Ru3LxqRi4BYHbjhb6f8tAHd/eN+pk7duhRzHtgBfA3Hb/BSV4DbBJ/ihypoNo0I=
 notifications:

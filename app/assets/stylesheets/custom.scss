@@ -1,11 +1,13 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
+@import url(https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css);
 
 /* universal */
 
 body {
   padding-top: 120px;
+  font-family: 'Rounded Mplus 1c';
+}
+h1{
+  font-family: 'Rounded Mplus 1c';
 }
 
 section {

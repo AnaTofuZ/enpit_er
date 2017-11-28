@@ -49,6 +49,8 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootswatch-rails (3.3.5)
+      railties (>= 3.1)
     browser (2.5.2)
     builder (3.2.3)
     byebug (9.1.0)
@@ -74,6 +76,8 @@ GEM
     erubi (1.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     formatador (0.2.5)
     geocoder (1.4.4)
     globalid (0.4.0)
@@ -232,12 +236,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.3.7)
+  bootswatch-rails
   browser (~> 2.4)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  font-awesome-rails
   geocoder
   gmaps4rails
   guard (= 2.13.0)
