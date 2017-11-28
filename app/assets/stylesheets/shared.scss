@@ -10,15 +10,18 @@
 table.food_tableList{
   width:100%;
   height:200px;
-	border-collapse: collapse;
-	text-align: left;
-	line-height: 1.5;
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
 
   td {
-  	width: 350px;
-  	padding: 20px;
-  	border: 1px solid #ccc;
+    width: 350px;
+    padding: 20px;
+    border: 1px solid #ccc;
     border-width: 1px 0px;
   }
 
+}
+h2{
+    font-family: 'Rounded Mplus 1c';
 }

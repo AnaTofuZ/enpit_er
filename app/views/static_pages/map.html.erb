@@ -20,24 +20,25 @@ function initMap() {
     zoom: 15
   });
 
-  function markerCreate(p, t) {
+  function markerCreate(p, t, l) {
     m = new google.maps.Marker({
       position: p,
       map: map,
       title: t,
+      label: l,
     });
 
     return m;
   }
 
   // 琉大工学部のマーカーを表示
-  const ryukyuUnivMarker = markerCreate(ryukyuUniv, '琉大工学部');
+  const ryukyuUnivMarker = markerCreate(ryukyuUniv, '琉大工学部', '琉大工学部');
 
   // キタローのマーカーを表示
-  const southLawsonMarker = markerCreate(southLawson, 'キタロー');
+  const southLawsonMarker = markerCreate(southLawson, 'キタロー', 'キタロー');
 
   // キリ学のマーカーを表示
-  const chiriUnivMarker =  markerCreate(chiriUniv, 'キリ学');
+  const chiriUnivMarker =  markerCreate(chiriUniv, 'キリ学', 'キリ学');
 
   // 琉大マーカーのclickアクション, ページが遷移するよ
   ryukyuUnivMarker.addListener('click', () => {

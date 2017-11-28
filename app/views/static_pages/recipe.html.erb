@@ -19,7 +19,6 @@
 <div id="recipe">
       <h1>作る料理を選択しよう！</h1>
    <%= form_tag("/static_pages/community", method: "get") do %>
-      <h2><%= submit_tag "確定!!" , :class => "btn btn-lg btn-primary" %></h2>
 
       <div class="nabe1">
 
@@ -59,7 +58,7 @@
                   <li>補足 しめはおうどんを入れたり、おじやにしたり(*^.^*)</li>
                </ol>
                <div id="rece1_button">
-                  <p>これにする! <%= radio_button_tag 'recipe_name', "ちゃんこ鍋" %></p>
+                  <p><%= radio_button_tag 'recipe_name', "ちゃんこ鍋" %>これにする!</p>
                </div>
       </div>
 
@@ -103,7 +102,7 @@
                   <li>豚肉の色が変わり、白菜が柔らかくなったら小口切りの小（万能）ねぎと白いりごまを散らし、火がとおったら頂く。</li>
                </ol>
                <div id="rece2_button">
-                  <p>これにする! <%= radio_button_tag 'recipe_name', "ミルフィーユ鍋" %></p>
+                  <p><%= radio_button_tag 'recipe_name', "ミルフィーユ鍋" %>これにする!</p>
                </div>
       </div>
 
@@ -111,5 +110,8 @@
       <% @usersId.each do |u| %>
         <%= hidden_field_tag 'usersId[]', u %>
       <% end %>
+
+      <%# -- buton --- %>
+     <h2><%= submit_tag "確定!!" , :class => "btn btn-lg btn-primary" %></h2>
     <% end %>
 </div>

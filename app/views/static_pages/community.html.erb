@@ -4,9 +4,11 @@
     <%= hidden_field_tag 'usersId[]', u %>
   <% end %>
   <h1><%= label_tag :"コミュニティ名" %></h1>
-  <%= text_field_tag :'comunity' %> 
+    <p><small>(例:犬好きさんの集まり~鍋祭~)</small></p>
+  <%= text_field_tag :'comunity' %>
   <h1><%= label_tag :"日時" %></h1>
   <%= text_field_tag :"date" %>
+    <p><small>(例:12月4日18時)</small></p>
   <br><br>
   <%= submit_tag("コミュニティ作成") %>
 <% end %>

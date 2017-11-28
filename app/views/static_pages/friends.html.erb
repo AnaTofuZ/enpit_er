@@ -1,16 +1,44 @@
 <div class="friends">
-         <% if !@users.empty? %>
+         <% if !@profiles.empty? %>
            <p><%= @place_name %>に集合できる人たちです!</p>
-          <p>一緒に食べたい人を選んでください</p>
+             <p>一緒に食べたい人を選んでください</p>
+             <p><small>※自分自身も追加してください</small></p>
 
-            <%= form_tag(recipe_path, method: "get") do %>
-              <%= hidden_field_tag 'placeName', @place_name %>
-              <% @users.each do |u| %>
-                    <%= check_box_tag 'user_id[]', u.user_id,checked = false, :id => u.user_id %>
-                    <%= label_tag 'u.user.name', u.user.name %> <br />
-              <% end %>
-            <%= submit_tag("確定!!") %>
-            <% end %>
+
+             <div class="table-responsive">
+
+                     <%= form_tag(recipe_path, method: "get") do %>
+                     <%= hidden_field_tag 'placeName', @place_name %>
+                <table class="table table-striped">
+                   <thead>
+                      <tr>
+                         <th scope="col">#</th>
+                         <th scope="col">名前</th>
+                         <th scope="col">性別</th>
+                         <th scope="col">年齢</th>
+                         <th scope="col">職業</th>
+                         <th scope="col">趣味</th>
+                         <th scope="col">やりたいこと</th>
+                      </tr>
+                   </thead>
+                   <tbody>
+                       <% @profiles.each do |p| %>
+                           <tr />
+                                <th scope="row"><%= check_box_tag 'user_id[]', p.user_id,checked = false, :id => p.user_id %></th>
+                                <td><%= label_tag 'p.user.name', p.user.name %> </td>
+                                <td><%= show_gender(p.sex) %></td>
+                                <td><%= age(p.birthday) %></td>
+                                <td><%= show_none_profile(p.job) %></td>
+                                <td><%= show_none_profile(p.hobby) %></td>
+                                <td><%= show_none_profile(p.purpose) %></td>
+                          </tr>
+                       <% end %>
+                   </tbody>
+                 </table>
+
+                 <%= submit_tag("確定!!") %>
+                 <% end %>
+              </div>
 
          <%  else %>
             <p> まだ<%= @place_name %>に集まれる人はいないようです…</p>
