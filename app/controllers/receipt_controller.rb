@@ -19,7 +19,6 @@ class ReceiptController < ApplicationController
     http = Net::HTTP.new(get_url.host, get_url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    logger.debug(get_url)
     req = Net::HTTP::Post.new(get_url)
     body={"requests": [{"image": {"content": Base64.encode64(@deleteFile.read)},"features": [{"type": "TEXT_DETECTION"}]}]}.to_json
     req["Content-Type"] = "application/json"
@@ -29,7 +28,7 @@ class ReceiptController < ApplicationController
     if result['error']
       @message = result['error']['message']
     elsif result['responses']
-      @text = result
+      @text = result['responses'][0]['fullTextAnnotation']['text']
     end
   end
   
