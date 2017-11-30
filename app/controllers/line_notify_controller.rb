@@ -16,7 +16,7 @@ class LineNotifyController < ApplicationController
       @user.notifytoken = token
       @user.save
     end
-   confirm_message = "この通知は確認用です \nレシコミから\nコミュニティ名\n集合場所\n集合日時が通知されます"
+   confirm_message = "この通知は確認用です \nコミュニティ名\n集合場所\n集合日時が通知されます"
    example_message = "(これは例です)レシコミからです!!\nコミュニティ名:鍋大好き会\n集合場所:北口駅\n集合日時:19:00"
    line_notify_send_message(@user.notifytoken,confirm_message)
    line_notify_send_message(@user.notifytoken,example_message)
