@@ -1,3 +1,4 @@
+# coding: utf-8
 class LineNotifyController < ApplicationController
   include LineNotifyHelper
   protect_from_forgery :only => ["authorize"]
@@ -15,7 +16,8 @@ class LineNotifyController < ApplicationController
       @user.notifytoken = token
       @user.save
     end
-   line_notify_send_message(@user.notifytoken,"この通知は確認用です")
+   confirm_message = "この通知は確認用です \nレシコミから\nコミュニティ名\n集合場所\n集合日時が通知されます"
+   line_notify_send_message(@user.notifytoken,confirm_message)
    flash[:success] = "LINEの登録が完了しました!"
    redirect_to root_url
   end
