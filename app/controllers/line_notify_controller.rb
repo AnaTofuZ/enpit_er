@@ -1,4 +1,3 @@
-# coding: utf-8
 class LineNotifyController < ApplicationController
   include LineNotifyHelper
   protect_from_forgery :only => ["authorize"]
