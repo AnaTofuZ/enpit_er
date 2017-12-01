@@ -1,18 +1,12 @@
 <h1>レシートを登録するページ</h1>
 <% browser = Browser.new( request.env['HTTP_USER_AGENT'] ) %>
 <% if browser.device.mobile? %>
-  <% if Rails.env.development? %>
-    <h2>これはモバイル画面です</h2>
-  <% end %>
   カメラでの撮影、またはファイルを選択してください
   <%= form_tag '/receipt/confrimate', method: 'post', multipart: true do %>
 	    <%= file_field :fileupload, :file %>
 	    <%= submit_tag '送信', class: "btn btn-lg btn-primary" %>
 	<% end %>
 <% else %>
-  <% if Rails.env.development? %>
-    <h2>これはPC画面です</h2>
-  <% end %>
   ファイルを選択してください
   <%= form_tag '/receipt/confrimate', method: 'post', multipart: true do %>
 	    <%= file_field :fileupload, :file %>

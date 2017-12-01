@@ -1,15 +1,21 @@
-<h1>レシート内容の確認</h1>
+<script>
+  window.onload=init;
+  function init(){
+    document.form1.hen1.onclick = clickCheck;
+  }
+  var count = 0;
+  function clickCheck(){
+    ++count;
+    alert("クリック回数:"+count);
+  }
+</script>
 <!--ここに取得したレシート内容の一覧を表示する。-->
 <h2>以下のレシート情報が読み込まれました。</h2>
-  <li>牛肉</li>
-  <li>ネギ</li>
-  <li>シャンプー</li>
-  <li>きのこ</li>
-<%= link_to "確認", root_path, class: "btn btn-lg btn-primary" %>
-元画像<br>
-<%#= image_tag @img_path, :width => '500'%>
+<br>
 <br>
 <% if !@text.nil? %>
+<table border=1 id="receipt">
+  <tr><th>商品名</th><th>編集</th><th>削除</th></tr>
   <% stext = @text.split("\n") %>
   <% 
   if stext.include?("合 言十")
@@ -17,14 +23,23 @@
     stext.slice!(bbb..-1)
   end
   %>
+  <form name="form1">
   <tr id="saku">
+    <% i = 0 %>
   <% stext.each do |st| %>
+  
+    <tr>
       <td><%= st %></td>
-      <td><%= link_to "削除", root_path ,class: "btn btn-lg btn-primary"%></td>
-      <br>
+      <td><input name="hen<%= i%>" type="button" value="<%= i %>"></td>
+      <td><%= link_to "削除", root_path ,class: "btn btn-lg"%></td>
+    </tr>
+    <% i+=1 %>
   <% end %>
   </tr>
+  </table></form>
 <% end %>
 <% if !@message.nil? %>
 <%= @message %>
 <% end %>
+<br><br><br>
+<%= link_to "確認", root_path, class: "btn btn-lg btn-primary" %>
