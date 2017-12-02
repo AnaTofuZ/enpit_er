@@ -25,6 +25,8 @@ class LineNotifyController < ApplicationController
     #パラメータよりメッセージの作成:param一覧[comunity,member,recipe,place,date]
     users = User.find((params[:usersId].map(&:to_i)))
     message = "レシコミからです!!"+"\nコミュニティ名:"+params[:comunity]+"\n集合場所:"+params[:placeName]+"\n集合日時:"+params[:date]
+    message += "メンバー\n"
+    message += users.map{|user| "user.name (user.sex)\n"}
               #+"\nレシピ"+ params[:recipe]
               #+"\nメンバー"+users.name
     users.each do |m|
