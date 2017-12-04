@@ -7,13 +7,21 @@ class ReceiptController < ApplicationController
   def confrimate
     if params[:fileupload]
       uploaded_file = fileupload_param[:file]
-      output_path = Rails.root.join('public', uploaded_file.original_filename)
-      File.open(output_path, 'w+b') do |fp|
-        fp.write  uploaded_file.read
-      end
-      @img_path = "/"+uploaded_file.original_filename
-      @deleteFile = Rails.root.join('public', uploaded_file.original_filename)
-      
+      if Rails.env.development?
+        output_path = Rails.root.join('public', uploaded_file.original_filename)
+        File.open(output_path, 'w+b') do |fp|
+          fp.write  uploaded_file.read
+        end
+        @img_path = "/"+uploaded_file.original_filename
+        @deleteFile = Rails.root.join('public', uploaded_file.original_filename)
+      else
+        output_path = Rails.root.join('tmp', uploaded_file.original_filename)
+        File.open(output_path, 'w+b') do |fp|
+          fp.write  uploaded_file.read
+        end
+        @img_path = "/"+uploaded_file.original_filename
+        @deleteFile = Rails.root.join('tmp', uploaded_file.original_filename)
+      end    
       result = ocr 
       if result['error']
         @message = result['error']['message']
@@ -30,6 +38,10 @@ class ReceiptController < ApplicationController
         end
       end
       File.delete(@deleteFile)
+    elsif params[:text]
+      dl = params[:dl]
+      @text = params[:text]
+      @text.delete(dl)
     end
   end
   

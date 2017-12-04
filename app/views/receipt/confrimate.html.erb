@@ -1,38 +1,22 @@
-<script>
-  window.onload=init;
-  function init(){
-    document.form1.hen1.onclick = clickCheck;
-  }
-  var count = 0;
-  function clickCheck(){
-    ++count;
-    alert("クリック回数:"+count);
-  }
-</script>
 <!--ここに取得したレシート内容の一覧を表示する。-->
 <h2>以下のレシート情報が読み込まれました。</h2>
 <br>
 <br>
 <% if !@text.nil? %>
-<table border=1 id="receipt">
-  <tr><th>商品名</th><th>削除</th></tr>
-  <% stext = @text %>
-  <form name="form1">
-  <tr id="saku">
-    <% i = 0 %>
-  <% stext.each do |st| %>
-  
+  <%= form_tag(items, method: "post") do %>
+  <table border=1 id="receipt">
+    <tr><th>商品名</th><th>削除</th></tr>
+    <% stext = @text %>
+    <% stext.each do |st| %>
     <tr>
-      <td><input type="text" value="<%= st %>"></td>
-      <td><%= link_to "削除", root_path ,class: "btn btn-lg"%></td>
+      <td><%= text_field_tag :'text[]',st %></td>
+      <td><%= link_to "削除", receipt_confrimate_path(text: stext, dl: st), :method => :post,class: "btn btn-lg" %></td>
     </tr>
-    <% i+=1 %>
+    <% end %>
+  </table>
+  <br><br>
+  <%= submit_tag "確定!!",class: "btn btn-lg btn-primary"%>
   <% end %>
-  </tr>
-  </table></form>
+<% elsif !@message.nil? %>
+  <%= @message %>
 <% end %>
-<% if !@message.nil? %>
-<%= @message %>
-<% end %>
-<br><br><br>
-<%= link_to "確認", root_path, class: "btn btn-lg btn-primary" %>
