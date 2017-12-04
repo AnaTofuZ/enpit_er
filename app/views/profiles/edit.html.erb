@@ -1,16 +1,18 @@
 <h1>Profiles編集</h1>
+	<%= include_double_brank.html_safe %>
+    
     <h4>集合場所を設定してください</h4>
     <%= form_for @user.profile, :url => {:controller => :profiles, :action => :update} do |f| %>
     <%= f.select(:place_id,options_for_select([['琉大工学部', 1], ['北口ローソン', 2],['キリ学',3]]) )%>
 
-	<%= include_double_brank %>
+	<%= include_double_brank.html_safe %>
 
     <h4>性別を選択して下さい</h4>
     &nbsp;&nbsp;&nbsp;&nbsp;<label><%= f.radio_button :sex, "male" %>男性&nbsp;&nbsp;&nbsp;&nbsp;</label>
     <label><%= f.radio_button :sex, "female" %>女性&nbsp;&nbsp;&nbsp;&nbsp;</label>
     <label><%= f.radio_button :sex, "notapplicable" %>その他</label>
 
-	<%= include_double_brank %>
+	<%= include_double_brank.html_safe %>
 
     <h4>生年月日を入力して下さい</h4>
     <%=f.label :birthday%>
@@ -22,25 +24,25 @@
         default: Date.new(1989, 1, 1),
         date_separator: '/')%>
 
-	<%= include_double_brank %>
+	<%= include_double_brank.html_safe %>
 
     <h4>職業を設定して下さい</h4>
     <%= f.label :job, "職業"%>
     <%= f.text_field :job%>
 
-	<%= include_double_brank %>
+	<%= include_double_brank.html_safe %>
 
     <h4>趣味を設定して下さい</h4>
     <%= f.label :hobby, "趣味"%>
     <%= f.text_field :hobby%>
 
-	<%= include_double_brank %>
+	<%= include_double_brank.html_safe %>
 
     <h4>レシコミをご利用になる目的を設定して下さい．(例1:残り物を無くすため;例2:友達を増やしたい等)</h4>
     <%= f.label :purpose, "目的"%>
     <%= f.text_field :purpose%>
 
-	<%= include_double_brank %>
+	<%= include_double_brank.html_safe %>
 
     <%= f.submit "登録" %>
 <% end %>
