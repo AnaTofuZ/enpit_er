@@ -19,6 +19,15 @@ class ReceiptController < ApplicationController
         @message = result['error']['message']
       elsif result['responses']
         @text = result['responses'][0]['fullTextAnnotation']['text']
+        @text = @text.split("\n")
+        if !@text.grep(/年/).empty?
+          headtext=@text.grep(/2017年/)
+          @text.slice!(0..@text.index(headtext[0]))
+        end
+        if !@text.grep(/合.+/).empty?
+          footertext=@text.grep(/合.+/)
+          @text.slice!(@text.index(footertext[0])..-1)
+        end
       end
       File.delete(@deleteFile)
     end

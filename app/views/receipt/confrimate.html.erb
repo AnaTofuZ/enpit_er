@@ -16,22 +16,7 @@
 <% if !@text.nil? %>
 <table border=1 id="receipt">
   <tr><th>商品名</th><th>削除</th></tr>
-  <% stext = @text.split("\n") %>
-  <%= aaa=stext.grep(/年/) %>
-  <% 
-  aaa=stext.grep(/年/)
-  ccc=stext.index(aaa[0])
-  stext.slice!(0..ccc)
-  %>
-  <%= bbb = stext.grep(/合.+/) %>
-  <% ddd = stext.index(bbb[0]) %>
-  <% stext.slice!(ddd..-1) %>
-  <%
-  # if stext.include?("合 言十")
-  #   bbb=stext.index("合 言十")
-  #   stext.slice!(bbb..-1)
-  # end
-  %>
+  <% stext = @text %>
   <form name="form1">
   <tr id="saku">
     <% i = 0 %>
