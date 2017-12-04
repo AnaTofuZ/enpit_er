@@ -27,7 +27,7 @@
        <br>
        <br>
        <br>
-       <br>       
+       <br>
        <h2>LINE認証のやりかた</h2>
        <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333; border-radius: 10px;">
               <%= image_tag('LINE-1.jpg',class:"img-responsive") %>
@@ -51,6 +51,9 @@
 <% else %>
     <%= link_to "新規登録", signup_path, class: "btn btn-lg btn-primary" %>
     <p> 既にこのアプリで<%= @usersum %>人の参加者の皆さんによって，<%= @counter %>件のコミュニティが作成されました!</p>
-    <%= link_to image_tag('6_001.jpg',class:"img-responsive"),asset_path('rececomi_6.pdf') %>
+    <%= render 'static_pages/about_commic' %>
+
+    <br />
+    <%= link_to "新規登録", signup_path, class: "btn btn-lg btn-primary center-block" %>
 <% end %>
 </div>
