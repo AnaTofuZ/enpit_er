@@ -28,7 +28,7 @@ class LineNotifyController < ApplicationController
     access_counter #アクセスカウンタ
     #パラメータよりメッセージの作成:param一覧[comunity,member,recipe,place,date]
     profiles = Profile.where(user_id: (params[:usersId].map(&:to_i)))
-    message = "レシコミからです!!"+"\nコミュニティ名:"+params[:comunity]+"\n集合場所:"+params[:placeName]+"\n集合日時:"+params[:date]
+    message = "レシコミからです!!"+"\nコミュニティ名:"+params[:comunity]+"\n集合場所:"+params[:placeName]+"\n集合日時:"+params[:date]+"\n"
     message << "メンバー\n"
 
     profiles.each do |p|
