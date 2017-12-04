@@ -3,6 +3,10 @@ module ProfilesHelper
 		!current_user.profile.nil?
 	end
 
+	def include_double_brank
+		return "<br />  <br />"
+	end
+
 	def show_place(place_id)
 			case place_id.to_i
 			when 1 then
