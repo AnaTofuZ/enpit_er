@@ -25,7 +25,7 @@ end
   # commityな部分
   get 'static_pages/community'
   get 'receipt/input'
-  post 'receipt/confrimate'
+  post 'receipt/confrimate', to:'receipt#confrimate'
 
   # item
   get 'items/new'
