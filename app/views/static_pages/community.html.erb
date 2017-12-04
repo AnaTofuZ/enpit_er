@@ -7,8 +7,13 @@
     <p><small>(例:犬好きさんの集まり~鍋祭~)</small></p>
   <%= text_field_tag :'comunity' %>
   <h1><%= label_tag :"日時" %></h1>
-  <%= text_field_tag :"date" %>
     <p><small>(例:12月4日18時)</small></p>
+  <%= text_field_tag :"date" %>
   <br><br>
-  <%= submit_tag("コミュニティ作成") %>
+  <%= submit_tag("コミュニティ作成" ,class: "btn btn-lg btn-primary")%>
+
+       <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333; border-radius: 10px;">
+              以下のようなメッセージが送信されます
+              <%= image_tag('LINE-message.jpg',class:"img-responsive") %>
+       </div>
 <% end %>
