@@ -1,4 +1,8 @@
 <h1>食材の確認</h1>
 <p> 食材 : 　</p>
-<%= @item.food %>
+<% @user.item.each do |item| %>
+<%= item.food %>
+<br>
+<br>
+<% end %>
 
