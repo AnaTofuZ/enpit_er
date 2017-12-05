@@ -3,19 +3,20 @@
 <br>
 <br>
 <% if !@text.nil? %>
-  <%= form_for @item do |f| %>
+  <%= form_tag(items_path, :method => :post,:action => :create) do %>
   <table border=1 id="receipt">
     <tr><th>商品名</th><th>削除</th></tr>
     <% stext = @text %>
-    <% stext.each do |st| %>
+    <% @items.each_with_index do |item, i| %>
+    <% @item = item %>
     <tr>
-      <td><%=  f.text_field :food ,value: st %></td>
-      <td><%= link_to "削除", receipt_confrimate_path(text: stext, dl: st), :method => :post,class: "btn btn-lg" %></td>
+      <td><%= text_field_tag "food[]" ,stext[i] %></td>
+      <td><%= link_to "削除", receipt_confrimate_path(text: stext, dl: stext[i]), :method => :post,class: "btn btn-lg" %></td>
     </tr>
     <% end %>
   </table>
   <br><br>
-  <%= f.submit "確定!!",class: "btn btn btn-primary" %>
+  <%= submit_tag "確定!!",class: "btn btn btn-primary" %>
   <% end %>
 <% elsif !@message.nil? %>
   <%= @message %>

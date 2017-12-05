@@ -36,15 +36,21 @@ class ReceiptController < ApplicationController
           footertext=@text.grep(/合.+/)
           @text.slice!(@text.index(footertext[0])..-1)
         end
+        @user = current_user
+        @items = (1..@text.length).map do
+          Item.new
+        end
       end
       File.delete(@deleteFile)
     elsif params[:text]
       dl = params[:dl]
       @text = params[:text]
       @text.delete(dl)
+      @user = current_user
+      @items = (1..@text.length).map do
+        Item.new
+      end
     end
-    @user = current_user
-    @item = Item.new
   end
   
   private
