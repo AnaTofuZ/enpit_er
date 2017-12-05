@@ -6,6 +6,9 @@
       <li>
         <%= link_to "Home",   root_path %>
       </li>
+      <li>
+         <%= link_to "レシコミとは?", about_path %>
+      </li>
       <% if logged_in? %>
           <li>
               <%= link_to "Log out", logout_path,method: :delete %>
