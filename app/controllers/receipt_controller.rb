@@ -43,6 +43,8 @@ class ReceiptController < ApplicationController
       @text = params[:text]
       @text.delete(dl)
     end
+    @user = current_user
+    @item = Item.new
   end
   
   private
