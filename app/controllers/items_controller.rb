@@ -6,25 +6,28 @@ class ItemsController < ApplicationController
 
   def create
     @user = current_user
-    params[:food].each do |fd|
-      raw_params = {item: {food: fd}}
-      params = ActionController::Parameters.new(raw_params)
-      @item = Item.new(params.require(:item).permit(:food).merge({user_id: @user.id}))
+    if params[:food]
+      params[:food].each do |fd|
+        raw_params = {item: {food: fd}}
+        params = ActionController::Parameters.new(raw_params)
+        @item = Item.new(params.require(:item).permit(:food).merge({user_id: @user.id}))
+        if @item.save
+          flash[:success] = "食材の登録が完了しました！"
+        else
+          flash[:fail] = "食材の登録に失敗しました"
+        end
+      end
+      redirect_to root_url
+    else
+      @item = Item.new(item_param)
       if @item.save
         flash[:success] = "食材の登録が完了しました！"
+        redirect_to root_url
       else
         flash[:fail] = "食材の登録に失敗しました"
+        redirect_to root_url
       end
     end
-    redirect_to root_url
-    # @item = Item.new(item_param)
-    # if @item.save
-    #   flash[:success] = "食材の登録が完了しました！"
-    #   redirect_to root_url
-    # else
-    #   flash[:fail] = "食材の登録に失敗しました"
-    #   redirect_to root_url
-    # end
   end
 
   def show

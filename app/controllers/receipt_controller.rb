@@ -28,7 +28,7 @@ class ReceiptController < ApplicationController
       elsif result['responses']
         @text = result['responses'][0]['fullTextAnnotation']['text']
         @text = @text.split("\n")
-        if !@text.grep(/年/).empty?
+        if !@text.grep(/2017年/).empty?
           headtext=@text.grep(/2017年/)
           @text.slice!(0..@text.index(headtext[0]))
         end
@@ -69,7 +69,7 @@ class ReceiptController < ApplicationController
     req["Content-Type"] = "application/json"
     res = http.request(req,body)
     result = JSON.parse(res.body)
-    logger.debug(result)
+    # logger.debug(result)
 	  return result
 	end
 end
