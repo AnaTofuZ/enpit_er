@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123081305) do
+ActiveRecord::Schema.define(version: 20171207081334) do
 
   create_table "community_counters", force: :cascade do |t|
     t.integer "counter", default: 0
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20171123081305) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
