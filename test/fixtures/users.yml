@@ -2,5 +2,5 @@
 
 Jhon:
   name: Smizh
-  email: example@ezweb.ne.jp
+#  email: example@ezweb.ne.jp
   password_digest: 'Rxn302n1'
