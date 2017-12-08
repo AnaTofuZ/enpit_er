@@ -60,7 +60,7 @@ class ReceiptController < ApplicationController
     req["Content-Type"] = "application/json"
     res = http.request(req,body)
     result = JSON.parse(res.body)
-    # logger.debug(result)
+    logger.debug(result)
 	  return result
 	end
 end
