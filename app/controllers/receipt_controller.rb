@@ -13,14 +13,13 @@ class ReceiptController < ApplicationController
       end
       @img_path = "/"+uploaded_file.original_filename
       @deleteFile = Rails.root.join('public', uploaded_file.original_filename)
-      
       result = ocr 
       if result['error']
         @message = result['error']['message']
       elsif result['responses']
         @text = result['responses'][0]['fullTextAnnotation']['text']
         @text = @text.split("\n")
-        if !@text.grep(/年/).empty?
+        if !@text.grep(/2017年/).empty?
           headtext=@text.grep(/2017年/)
           @text.slice!(0..@text.index(headtext[0]))
         end
@@ -28,8 +27,20 @@ class ReceiptController < ApplicationController
           footertext=@text.grep(/合.+/)
           @text.slice!(@text.index(footertext[0])..-1)
         end
+        @user = current_user
+        @items = (1..@text.length).map do
+          Item.new
+        end
       end
       File.delete(@deleteFile)
+    elsif params[:text]
+      dl = params[:dl]
+      @text = params[:text]
+      @text.delete(dl)
+      @user = current_user
+      @items = (1..@text.length).map do
+        Item.new
+      end
     end
   end
   
