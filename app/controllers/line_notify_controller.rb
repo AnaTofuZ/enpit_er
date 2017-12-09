@@ -24,13 +24,15 @@ class LineNotifyController < ApplicationController
    redirect_to root_url
   end
   def sending
-
+    user = current_user
+    
     access_counter #アクセスカウンタ
     #パラメータよりメッセージの作成:param一覧[comunity,member,recipe,place,date]
     profiles = Profile.where(user_id: (params[:usersId].map(&:to_i)))
     message = "レシコミからです!!"+"\nコミュニティ名:"+params[:comunity]+"\n集合場所:"+params[:placeName]+"\n集合日時:"+params[:date]+"\n"
+    message << "作成者: #{user.name} (#{user.profile.sex})\n"
     message << "メンバー\n"
-
+    #洗濯したメンバー
     profiles.each do |p|
         message << "#{p.user.name} (#{p.sex})\n"
     end
@@ -39,6 +41,8 @@ class LineNotifyController < ApplicationController
     profiles.each do |p|
       line_notify_send_message(p.user.notifytoken,message)
     end
+    #自身への送信
+    line_notify_send_message(user.notifytoken,message)
     redirect_to root_url
   end
 
