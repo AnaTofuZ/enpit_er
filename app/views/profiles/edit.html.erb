@@ -8,9 +8,9 @@
 	<%= include_double_brank.html_safe %>
 
     <h4>性別を選択して下さい</h4>
-    &nbsp;&nbsp;&nbsp;&nbsp;<label><%= f.radio_button :sex, "male" %>男性&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <label><%= f.radio_button :sex, "female" %>女性&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <label><%= f.radio_button :sex, "notapplicable" %>その他</label>
+    <label><%= f.radio_button :sex, "male" %><span>男性</span></label>
+    <label><%= f.radio_button :sex, "female" %><span>女性</span></label>
+    <label><%= f.radio_button :sex, "notapplicable" %><span>その他</span></label>
 
 	<%= include_double_brank.html_safe %>
 
@@ -44,5 +44,5 @@
 
 	<%= include_double_brank.html_safe %>
 
-    <%= f.submit "登録" %>
+    <%= f.submit "登録" ,class:"btn btn-lg btn-primary"%>
 <% end %>
