@@ -7,10 +7,9 @@ class User < ApplicationRecord
     VALID_NAME_REGEX = /\A\w+\z/i
     validates :email, presence: true, length: { maximum: 255 },
                       format: { with: VALID_EMAIL_REGEX },
-                      uniqueness: { case_sensitive: false }
+                      uniqueness: { case_sensitive: false }, if: -> { screen_name.blank?}
     validates  :screen_name, presence: true, length: { maximum: 15},
                      format: { with: VALID_NAME_REGEX},
-                      uniqueness: { case_sensitive: false }
-
+                      uniqueness: { case_sensitive: false }, if: -> { email.blank?}
     has_secure_password
 end
