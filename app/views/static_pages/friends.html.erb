@@ -2,7 +2,6 @@
          <% if !@profiles.empty? %>
            <p><%= @place_name %>に集合できる人たちです!</p>
              <p>一緒に食べたい人を選んでください</p>
-             <p><small>※自分自身も追加してください</small></p>
 
 
              <div class="table-responsive">
@@ -23,6 +22,9 @@
                    </thead>
                    <tbody>
                        <% @profiles.each do |p| %>
+                         <% if ((@user.id == p.user.id) ||(p.user.notifytoken.nil?)) %>
+                           <% next %>
+                         <% else %>
                            <tr />
                                 <th scope="row"><%= check_box_tag 'user_id[]', p.user_id,checked = false, :id => p.user_id %></th>
                                 <td><%= label_tag 'p.user.name', p.user.name %> </td>
@@ -32,6 +34,7 @@
                                 <td><%= show_none_profile(p.hobby) %></td>
                                 <td><%= show_none_profile(p.purpose) %></td>
                           </tr>
+                          <% end %>
                        <% end %>
                    </tbody>
                  </table>

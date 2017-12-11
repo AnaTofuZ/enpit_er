@@ -4,16 +4,15 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <%= form_for(:session, url: login_path) do |f| %>
-
-                <%= f.label :login_key %>
+                <%= f.label :login_key, "メールアドレスかレシコミID" %>
                 <%= f.text_field :login_key, disbale:"ime-mode", class: 'form-control' %>
-
-                <%= f.label :password %>
+                <br>
+                <%= f.label :password ,"パスワード"%>
                 <%= f.password_field :password, class: 'form-control' %>
-
-                <%= f.submit "Log in", class: "btn btn-primary" %>
+                <br>
+                <%= f.submit "ログイン", class: "btn btn-primary" %>
             <% end %>
-
-          <p>New user?<%= link_to "Sign up now!", signup_path %></p>
+        <br><br>
+          <p>もし登録が済んでいないなら?&nbsp;&nbsp;<%= link_to "新規登録!", signup_path ,class:"btn btn-primary"%></p>
         </div>
      </div>
