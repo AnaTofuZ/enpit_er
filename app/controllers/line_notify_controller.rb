@@ -32,7 +32,7 @@ class LineNotifyController < ApplicationController
     message << "メンバー\n"
 
     profiles.each do |p|
-        message << "#{p.user.name} (#{p.sex})\n"
+        message << "#{p.user.name} (#{show_gender(p.sex)})\n"
     end
               #+"\nレシピ"+ params[:recipe]
               #+"\nメンバー"+users.name
@@ -50,4 +50,13 @@ class LineNotifyController < ApplicationController
      @counter =  counters.counter
   end
 
+  def show_gender(sex)
+         if sex == "male" then
+             "男性"
+         elsif sex == "female" then
+             "女性"
+         else
+             "その他"
+         end
+  end
 end
