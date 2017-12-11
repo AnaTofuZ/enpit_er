@@ -26,6 +26,7 @@ class StaticPagesController < ApplicationController
       end
 
       @profiles = Profile.where(place_id: place_id)
+      @user = current_user
   end
 
   def recipe
