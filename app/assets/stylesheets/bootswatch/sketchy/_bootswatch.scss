@@ -196,6 +196,34 @@ select.form-control {
 //     }
 //   }
 // }
+input[type="radio"] {
+margin-right: 6px;
+position: relative;
+width: 16px;
+height: 16px;
+border: 0px solid;
+-webkit-appearance: none;
+appearance: none;
+cursor: pointer;
+&:before {
+content: "";
+position: absolute;
+display: inline-block;
+width: 16px;
+height: 16px;
+border: 2px solid $gray-800;
+border-radius: 50% 45% 40% 50% / 40% 50% 50% 45%;
+}
+&:checked:before {
+background-color: $gray-800;
+}
+&:disabled {
+&:before {
+border: 2px solid $gray-500;
+}
+}
+}
+
 
 .form-check-label {
   padding-left: 2.5rem;
