@@ -1,10 +1,9 @@
-# coding: utf-8
 class SessionsController < ApplicationController
   def new
   end
 
   def create
-    user = User.find_by(name: params[:session][:name])
+    user = User.find_by(screen_name: params[:session][:screen_name])
     if user && user.authenticate(params[:session][:password])
       log_in user
       redirect_to user

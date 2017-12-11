@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207081334) do
+ActiveRecord::Schema.define(version: 20171211030959) do
 
   create_table "community_counters", force: :cascade do |t|
     t.integer "counter", default: 0
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20171207081334) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "notifytoken"
+    t.string "screen_name"
+    t.index ["screen_name"], name: "index_users_on_screen_name"
   end
 
 end
