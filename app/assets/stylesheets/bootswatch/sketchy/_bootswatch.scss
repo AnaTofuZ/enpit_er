@@ -123,7 +123,7 @@ table {
 
 // Forms =======================================================================
 
-input,
+//input,
 .form-control {
   border-radius: $border-radius;
 }
@@ -135,67 +135,71 @@ select.form-control {
   border-radius: $border-radius-lg !important;
 }
 
-// [type="checkbox"] {
-//   position: relative;
-//   appearance: none;
-//   cursor: pointer;
+[type="checkbox"] {
+  position: relative;
+  appearance: none;
+  cursor: pointer;
 
-//   &:before {
-//     content: "";
-//     position: absolute;
-//     left: 0.0em;
-//     top: -0.9em;
-//     display: inline-block;
-//     width: 15px;
-//     height: 16px;
-//     border: 2px solid $gray-800;
-//     border-radius: 2px 8px 2px 4px / 5px 3px 5px 3px;
-//   }
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0.0em;
+    top: -0.9em;
+    display: inline-block;
+    width: 15px;
+    height: 16px;
+    border: 2px solid $gray-800;
+    border-radius: 2px 8px 2px 4px / 5px 3px 5px 3px;
+  }
 
-//   &:checked:after {
-//     content: "x";
-//     position: absolute;
-//     left: 0.36em;
-//     top: -0.48em;
-//     font-size: 1.5rem;
-//     line-height: 0.5;
-//     color: $gray-800;
-//   }
+  &:checked:after {
+    content: "x";
+    position: absolute;
+    left: 0.36em;
+    top: -0.48em;
+    font-size: 1.5rem;
+    line-height: 0.5;
+    color: $gray-800;
+  }
 
-//   &:disabled {
-//     &:before {
-//       border: 2px solid $gray-500;
-//     }
-//   }
-// }
+  &:disabled {
+    &:before {
+      border: 2px solid $gray-500;
+    }
+  }
+}
 
-// [type="radio"] {
-//   position: relative;
-//   appearance: none;
-//   cursor: pointer;
+input[type="radio"] {
+  margin-right: 6px;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border: 0px solid;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  &:before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid $gray-800;
+    border-radius: 50% 45% 40% 50% / 40% 50% 50% 45%;
+  }
 
-//   &:before {
-//     content: "";
-//     position: absolute;
-//     left: -1.2em;
-//     top: -0.9em;
-//     display: inline-block;
-//     width: 16px;
-//     height: 16px;
-//     border: 2px solid $gray-800;
-//     border-radius: 50% 45% 40% 50% / 40% 50% 50% 45%;
-//   }
+  &:checked:before {
+    background-color: $gray-800;
+  }
 
-//   &:checked:before {
-//     background-color: $gray-800;
-//   }
+  &:disabled {
+    &:before {
+      border: 2px solid $gray-500;
+    }
+  }
+}
 
-//   &:disabled {
-//     &:before {
-//       border: 2px solid $gray-500;
-//     }
-//   }
-// }
+
 
 .form-check-label {
   padding-left: 2.5rem;
