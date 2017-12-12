@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to user
     else
-      flash.now[:danger] = 'メールアドレス,レシコミIDのいずれかか, パスワードが間違っています'
+      flash.now[:danger] = 'メールアドレス,レシコミIDのいずれかが, パスワードが間違っています'
       render 'new'
     end
   end
