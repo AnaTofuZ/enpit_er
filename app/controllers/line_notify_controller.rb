@@ -25,7 +25,7 @@ class LineNotifyController < ApplicationController
   end
   def sending
     user = current_user
-    
+
     access_counter #アクセスカウンタ
     #パラメータよりメッセージの作成:param一覧[comunity,member,recipe,place,date]
     profiles = Profile.where(user_id: (params[:usersId].map(&:to_i)))
@@ -36,6 +36,7 @@ class LineNotifyController < ApplicationController
     profiles.each do |p|
         message << "#{p.user.name} (#{show_gender(p.sex)})\n"
     end
+    message << "集合場所メンバーリスト\n#{getPlaceUrl(params[:placeName])}\n"
               #+"\nレシピ"+ params[:recipe]
               #+"\nメンバー"+users.name
     profiles.each do |p|
@@ -62,5 +63,17 @@ class LineNotifyController < ApplicationController
          else
              "その他"
          end
+  end
+
+  def getPlaceUrl(name)
+       if name ==  "琉大工学部" then
+            'https://rececomi.herokuapp.com/community/map/1'
+		 elsif name == "北口ローソン" then
+            'https://rececomi.herokuapp.com/community/map/2'
+		 elsif name == "キリ学" then
+            'https://rececomi.herokuapp.com/community/map/3'
+		 else
+				"Error"
+      end
   end
 end
