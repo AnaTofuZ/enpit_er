@@ -3,12 +3,19 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email])
+    login_key = params[:session][:login_key]
+     user = ""
+     if login_key =~ /@/
+       user = User.find_by(email: params[:session][:login_key])
+     else
+       user = User.find_by(screen_name: params[:session][:login_key])
+     end
+
     if user && user.authenticate(params[:session][:password])
       log_in user
       redirect_to user
     else
-      flash.now[:danger] = 'メールアドレスか, パスワードが間違っています'
+      flash.now[:danger] = 'メールアドレス,レシコミIDのいずれかが, パスワードが間違っています'
       render 'new'
     end
   end
