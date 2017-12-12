@@ -36,7 +36,9 @@ class LineNotifyController < ApplicationController
     profiles.each do |p|
         message << "#{p.user.name} (#{show_gender(p.sex)})\n"
     end
-    message << "集合場所メンバーリスト\n#{getPlaceUrl(params[:placeName])}\n"
+    message << "レシコミ\n"
+    message << 'https://rececomi.herokuapp.com/'
+    message << "\n"
               #+"\nレシピ"+ params[:recipe]
               #+"\nメンバー"+users.name
     profiles.each do |p|
