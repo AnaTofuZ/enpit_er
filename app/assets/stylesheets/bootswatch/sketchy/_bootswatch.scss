@@ -136,15 +136,18 @@ select.form-control {
 }
 
 [type="checkbox"] {
+  margin-right: 6px;
   position: relative;
+  width: 16px;
+  height: 16px;
+  border: 0px solid;
+  -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
 
   &:before {
     content: "";
     position: absolute;
-    left: 0.0em;
-    top: -0.9em;
     display: inline-block;
     width: 15px;
     height: 16px;
@@ -155,8 +158,6 @@ select.form-control {
   &:checked:after {
     content: "x";
     position: absolute;
-    left: 0.36em;
-    top: -0.48em;
     font-size: 1.5rem;
     line-height: 0.5;
     color: $gray-800;
